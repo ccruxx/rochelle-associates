@@ -36,19 +36,65 @@ export function Header() {
       {/* Top Bar with Firm Name and Contact */}
       <div className="bg-primary">
         <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-20 items-center justify-between">
             {/* Firm Name */}
-            <Link href="/" className="flex flex-col" data-testid="link-home">
-              <span className="text-xl font-serif font-bold text-primary-foreground">
-                ROCHELLE & ASSOCIATES
-              </span>
-              <span className="text-sm text-primary-foreground/80 -mt-1">
-                CRIMINAL DEFENSE & FAMILY LAW
-              </span>
-            </Link>
+            <div className="flex-1">
+              <Link href="/" className="flex flex-col" data-testid="link-home">
+                <span className="text-2xl md:text-3xl font-serif font-bold text-primary-foreground">
+                  ROCHELLE & ASSOCIATES
+                </span>
+                <span className="text-base md:text-lg text-primary-foreground/80 -mt-1">
+                  CRIMINAL DEFENSE & FAMILY LAW
+                </span>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden md:flex items-center justify-center space-x-8 flex-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-primary-foreground/80 ${
+                    location === link.href
+                      ? "text-secondary border-b-2 border-secondary pb-1"
+                      : "text-primary-foreground/90"
+                  }`}
+                  data-testid={`link-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
+              {/* Practice Areas Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button 
+                    className="flex items-center text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground/80 transition-colors"
+                    data-testid="dropdown-practice-areas"
+                  >
+                    Practice Areas
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  {practiceAreas.map((area) => (
+                    <DropdownMenuItem key={area.href} asChild>
+                      <Link 
+                        href={area.href}
+                        className="cursor-pointer"
+                        data-testid={`link-${area.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        {area.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </nav>
 
             {/* Contact Info & CTA */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-6 flex-1 justify-end">
               <div className="text-right">
                 <div className="text-sm text-primary-foreground/90">Free Consultation:</div>
                 <div className="text-lg font-bold text-primary-foreground" data-testid="text-phone">
@@ -121,54 +167,6 @@ export function Header() {
               </Sheet>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Navigation Bar */}
-      <div className="bg-primary/90">
-        <div className="container mx-auto px-4">
-          <nav className="hidden md:flex items-center space-x-8 h-12">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-foreground/80 ${
-                  location === link.href
-                    ? "text-secondary border-b-2 border-secondary"
-                    : "text-primary-foreground/90"
-                }`}
-                data-testid={`link-${link.label.toLowerCase()}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            
-            {/* Practice Areas Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button 
-                  className="flex items-center text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground/80 transition-colors"
-                  data-testid="dropdown-practice-areas"
-                >
-                  Practice Areas
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                {practiceAreas.map((area) => (
-                  <DropdownMenuItem key={area.href} asChild>
-                    <Link 
-                      href={area.href}
-                      className="cursor-pointer"
-                      data-testid={`link-${area.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {area.label}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
         </div>
       </div>
     </header>
