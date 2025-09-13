@@ -6,35 +6,35 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
 
-// Mock testimonials data
+// Actual Google reviews and testimonials
 const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Jennifer M.",
-    content: "Robin Rochelle saved my life. I was facing serious criminal charges and thought my future was over. His expertise and dedication got the charges reduced significantly. I can't thank him enough.",
+    name: "Satisfied Client",
+    content: "Robin did an amazing job on my case and his paralegal team is amazing. I could not ask for anything more. They are awesome people and will do everything they can to help you out! I would highly recommend them!",
     rating: 5,
     caseType: "Criminal Defense"
   },
   {
     id: "2", 
-    name: "Michael S.",
-    content: "Professional, knowledgeable, and caring. Rochelle & Associates handled my DUI case with incredible skill. They explained everything clearly and fought hard for the best outcome.",
+    name: "Divorce Client",
+    content: "I did not know any attorneys in Lawton, so when I was faced with a divorce, I checked here on Google. I chose Robin Rochelle based on his rating and reviews. It was a good decision, and I would recommend him to anyone needing legal assistance.",
     rating: 5,
-    caseType: "DUI Defense"
+    caseType: "Family Law"
   },
   {
     id: "3",
-    name: "Sarah T.",
-    content: "During my difficult divorce, Robin provided both legal expertise and emotional support. He protected my children's interests and secured a fair settlement. Highly recommended.",
+    name: "Google Reviewer",
+    content: "He and his staff delivered exactly what was agreed upon, in a professional, discreet, and timely manner. It was reassuring to know such an experienced team was working on my behalf.",
     rating: 5,
     caseType: "Family Law"
   },
   {
     id: "4",
-    name: "David R.",
-    content: "36 years of experience shows. Robin handled my domestic violence case with sensitivity and strength. His reputation in Lawton courts is outstanding.",
-    rating: 5,
-    caseType: "Domestic Violence"
+    name: "Client Review",
+    content: "Professional service and great results. The team at Rochelle & Associates really knows their stuff. Robin has years of experience and it shows in how he handles cases.",
+    rating: 4,
+    caseType: "Legal Services"
   }
 ];
 
