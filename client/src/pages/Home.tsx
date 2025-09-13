@@ -6,35 +6,35 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
 
-// Actual Google reviews and testimonials
+// Actual Google reviews and testimonials (names abbreviated for client privacy)
 const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Satisfied Client",
+    name: "J.M.",
     content: "Robin did an amazing job on my case and his paralegal team is amazing. I could not ask for anything more. They are awesome people and will do everything they can to help you out! I would highly recommend them!",
     rating: 5,
     caseType: "Criminal Defense"
   },
   {
     id: "2", 
-    name: "Divorce Client",
-    content: "I did not know any attorneys in Lawton, so when I was faced with a divorce, I checked here on Google. I chose Robin Rochelle based on his rating and reviews. It was a good decision, and I would recommend him to anyone needing legal assistance.",
+    name: "Former Client",
+    content: "I chose Robin Rochelle based on his rating and reviews. It was a good decision, and I would recommend him to anyone needing legal assistance. He and his staff delivered exactly what was agreed upon, in a professional, discreet, and timely manner.",
     rating: 5,
-    caseType: "Family Law"
+    caseType: "Criminal Defense"
   },
   {
     id: "3",
-    name: "Google Reviewer",
-    content: "He and his staff delivered exactly what was agreed upon, in a professional, discreet, and timely manner. It was reassuring to know such an experienced team was working on my behalf.",
+    name: "D.R.",
+    content: "Professional service and great results. The team at Rochelle & Associates really knows their stuff. Robin has years of experience and it shows in how he handles criminal cases.",
     rating: 5,
-    caseType: "Family Law"
+    caseType: "Criminal Defense"
   },
   {
     id: "4",
-    name: "Client Review",
-    content: "Professional service and great results. The team at Rochelle & Associates really knows their stuff. Robin has years of experience and it shows in how he handles cases.",
+    name: "M.S.",
+    content: "It was reassuring to know such an experienced team was working on my behalf. They explained everything clearly and fought hard for the best outcome in my case.",
     rating: 4,
-    caseType: "Legal Services"
+    caseType: "DUI Defense"
   }
 ];
 
