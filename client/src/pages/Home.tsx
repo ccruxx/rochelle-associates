@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
+import robinPhoto from "@assets/image_1757800548582.png";
 
 // Actual Google reviews and testimonials (names abbreviated for client privacy)
 const testimonials: Testimonial[] = [
@@ -250,14 +251,13 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/5] bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Award className="w-12 h-12 text-primary" />
-                  </div>
-                  <p className="font-medium">Professional Attorney Portrait</p>
-                  <p className="text-sm">Robin Lee Rochelle</p>
-                </div>
+              <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={robinPhoto} 
+                  alt="Robin Lee Rochelle, Attorney at Rochelle & Associates"
+                  className="w-full h-full object-cover object-center"
+                  data-testid="img-attorney-robin"
+                />
               </div>
             </div>
           </div>

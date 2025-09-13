@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Award, Users, Shield, Clock, CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import robinPhoto from "@assets/image_1757800548582.png";
 
 export default function About() {
   const firmValues = [
@@ -130,15 +131,14 @@ export default function About() {
             </div>
 
             <div className="space-y-6">
-              {/* Professional Photo Placeholder */}
-              <div className="aspect-[4/5] bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Award className="w-12 h-12 text-primary" />
-                  </div>
-                  <p className="font-medium">Robin Lee Rochelle</p>
-                  <p className="text-sm">Founding Attorney</p>
-                </div>
+              {/* Professional Photo */}
+              <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={robinPhoto} 
+                  alt="Robin Lee Rochelle, Founding Attorney at Rochelle & Associates"
+                  className="w-full h-full object-cover object-center"
+                  data-testid="img-attorney-robin-about"
+                />
               </div>
 
               {/* Achievements */}
