@@ -75,24 +75,24 @@ export default function About() {
                   aggressive, ethical, and effective legal representation to individuals facing their 
                   most challenging legal situations. With over 36 years of practice in Oklahoma, 
                   Attorney Rochelle has built a reputation for thorough preparation, strategic thinking, 
-                  and unwavering advocacy for her clients.
+                  and unwavering advocacy for his clients.
                 </p>
                 
                 <p>
-                  Her appointment to the Professional Responsibility Commission by the Oklahoma Supreme 
-                  Court reflects her commitment to maintaining the highest ethical standards in the 
+                  His appointment to the Professional Responsibility Commission by the Oklahoma Supreme 
+                  Court reflects his commitment to maintaining the highest ethical standards in the 
                   legal profession. This prestigious appointment demonstrates the respect and trust 
-                  she has earned among her peers and the judicial community.
+                  he has earned among his peers and the judicial community.
                 </p>
                 
                 <p>
                   Attorney Rochelle specializes in criminal defense and family law, areas where 
-                  individuals and families face life-changing decisions and consequences. She understands 
+                  individuals and families face life-changing decisions and consequences. He understands 
                   that behind every case is a person whose future, family, and freedom may be at stake.
                 </p>
                 
                 <p>
-                  Throughout her career, she has successfully defended clients against a wide range 
+                  Throughout his career, he has successfully defended clients against a wide range 
                   of criminal charges, from misdemeanors to serious felonies, and has helped families 
                   navigate complex divorce, custody, and domestic relations matters with compassion 
                   and skill.
@@ -213,7 +213,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-semibold text-primary">Local Knowledge & Experience</h3>
                 <p className="text-lg leading-relaxed">
                   As a long-time member of the Lawton legal community, Attorney Rochelle knows the local courts, 
-                  prosecutors, and judges. This familiarity allows her to craft effective strategies tailored 
+                  prosecutors, and judges. This familiarity allows him to craft effective strategies tailored 
                   to the specific practices and preferences of the local legal system.
                 </p>
                 
@@ -229,7 +229,7 @@ export default function About() {
                 <h3 className="text-2xl font-serif font-semibold text-primary">Direct Attorney Access</h3>
                 <p className="text-lg leading-relaxed">
                   When you hire Rochelle & Associates, you work directly with Attorney Rochelle, not with 
-                  paralegals or junior attorneys. You'll have her personal phone number and direct access 
+                  paralegals or junior attorneys. You'll have his personal phone number and direct access 
                   to discuss your case whenever you have questions or concerns.
                 </p>
                 

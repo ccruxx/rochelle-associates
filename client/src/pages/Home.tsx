@@ -11,7 +11,7 @@ const testimonials: Testimonial[] = [
   {
     id: "1",
     name: "Jennifer M.",
-    content: "Robin Rochelle saved my life. I was facing serious criminal charges and thought my future was over. Her expertise and dedication got the charges reduced significantly. I can't thank her enough.",
+    content: "Robin Rochelle saved my life. I was facing serious criminal charges and thought my future was over. His expertise and dedication got the charges reduced significantly. I can't thank him enough.",
     rating: 5,
     caseType: "Criminal Defense"
   },
@@ -25,14 +25,14 @@ const testimonials: Testimonial[] = [
   {
     id: "3",
     name: "Sarah T.",
-    content: "During my difficult divorce, Robin provided both legal expertise and emotional support. She protected my children's interests and secured a fair settlement. Highly recommended.",
+    content: "During my difficult divorce, Robin provided both legal expertise and emotional support. He protected my children's interests and secured a fair settlement. Highly recommended.",
     rating: 5,
     caseType: "Family Law"
   },
   {
     id: "4",
     name: "David R.",
-    content: "36 years of experience shows. Robin handled my domestic violence case with sensitivity and strength. Her reputation in Lawton courts is outstanding.",
+    content: "36 years of experience shows. Robin handled my domestic violence case with sensitivity and strength. His reputation in Lawton courts is outstanding.",
     rating: 5,
     caseType: "Domestic Violence"
   }
@@ -189,19 +189,19 @@ export default function Home() {
               
               <div className="space-y-4 text-lg leading-relaxed">
                 <p>
-                  With over 36 years of legal experience, Robin Lee Rochelle has established herself as one of 
-                  Lawton's most trusted criminal defense and family law attorneys. Her appointment to the 
-                  Professional Responsibility Commission demonstrates her commitment to legal excellence and ethics.
+                  With over 36 years of legal experience, Robin Lee Rochelle has established himself as one of 
+                  Lawton's most trusted criminal defense and family law attorneys. His appointment to the 
+                  Professional Responsibility Commission demonstrates his commitment to legal excellence and ethics.
                 </p>
                 
                 <p>
                   Attorney Rochelle understands that facing criminal charges or family legal issues can be 
-                  overwhelming. She provides personalized attention to each case, ensuring clients understand 
+                  overwhelming. He provides personalized attention to each case, ensuring clients understand 
                   their rights and options every step of the way.
                 </p>
                 
                 <p>
-                  Her extensive courtroom experience and deep understanding of Oklahoma law have resulted in 
+                  His extensive courtroom experience and deep understanding of Oklahoma law have resulted in 
                   successful outcomes for hundreds of clients facing serious legal challenges.
                 </p>
               </div>
