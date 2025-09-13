@@ -8,7 +8,9 @@ export function Footer() {
     "Criminal Defense",
     "DUI Defense", 
     "Family Law",
-    "Domestic Violence"
+    "Domestic Violence",
+    "Tribal Family Law",
+    "Wills, Trusts & Probate"
   ];
 
   const quickLinks = [

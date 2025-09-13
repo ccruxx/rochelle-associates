@@ -62,7 +62,7 @@ const practiceAreasData = {
     content: {
       overview: "Family legal matters are among the most emotionally challenging situations you may face. Whether you're going through a divorce, fighting for custody of your children, or dealing with other family law issues, you need an attorney who combines legal expertise with understanding and compassion.",
       approach: "We work to resolve family law matters efficiently while protecting your interests and those of your children. When possible, we seek amicable solutions that avoid lengthy court battles. However, when litigation is necessary, we provide aggressive representation to protect your rights.",
-      whyChoose: "Attorney Rochelle understands that family law cases affect real people and real relationships. She approaches each case with sensitivity while never losing sight of the goal: achieving the best possible outcome for you and your family."
+      whyChoose: "Attorney Rochelle understands that family law cases affect real people and real relationships. He approaches each case with sensitivity while never losing sight of the goal: achieving the best possible outcome for you and your family."
     }
   },
   "domestic-violence": {
@@ -83,6 +83,41 @@ const practiceAreasData = {
       overview: "Domestic violence allegations can destroy relationships, careers, and reputations. Even false accusations can have serious consequences, including protective orders, loss of gun rights, and difficulty with employment or housing. These cases require immediate attention and experienced legal representation.",
       approach: "We understand the sensitive nature of domestic violence cases and approach each situation with discretion and professionalism. Our goal is to protect your rights while working toward a resolution that serves everyone's best interests, especially when children are involved.",
       whyChoose: "Domestic violence cases often involve complex family dynamics and emotional situations. Attorney Rochelle has the experience and sensitivity necessary to navigate these challenging cases while providing strong legal advocacy."
+    }
+  },
+  "tribal-family-law": {
+    title: "Tribal Family Law",
+    description: "Representing your family with tribal attorney expertise in Lawton, OK",
+    icon: Users,
+    services: [
+      "Divorces",
+      "Adoptions", 
+      "Child Support",
+      "Child Custody",
+      "Guardianships"
+    ],
+    content: {
+      overview: "Suppose you're dealing with a family-related legal matter in a tribal court. You should find an attorney who understands your unique situation. Rochelle & Associates in Lawton, OK is here for you. Attorney Rochelle serves clients as a tribal family law attorney. He'll guide you through your legal matter and help your family reach the other side.",
+      approach: "Tribal courts have special jurisdiction over various areas of family law, including child custody proceedings. When dealing with a family legal matter through tribal courts, choose attorney Rochelle as your tribal attorney.",
+      whyChoose: "As your family law attorney, attorney Rochelle will meet with you to review your situation and discuss your hopes for your family. Then, he'll work with you to create a plan for your situation, attempt to settle outside of court or represent you in court if needed."
+    }
+  },
+  "wills-trusts-probate": {
+    title: "Wills, Trusts & Probate",
+    description: "Make your wishes clear with an estate planning attorney in Lawton, OK",
+    icon: Shield,
+    services: [
+      "Finalizing a nuncupative will",
+      "Planning what to do with your assets and estate",
+      "Going through any documents involving your final wishes",
+      "Probate proceedings",
+      "Estate administration",
+      "Trust creation and management"
+    ],
+    content: {
+      overview: "Do you have a will? This essential document outlines your wishes and protects your family's future. If you need to set your wishes in stone, turn to Rochelle & Associates in Lawton, OK. As your estate planning attorney, attorney Rochelle will go over your options with you and help you create a plan for your family.",
+      approach: "Attorney Rochelle does everything he can to help clients plan for their families' futures. As your estate planning attorney, he will help you prepare for your passing. However, he can continue to serve your family as their probate attorney should any complications arise.",
+      whyChoose: "Having difficulties with a loved one's estate? Attorney Rochelle combines estate planning expertise with probate experience to guide families through both planning and administration processes."
     }
   }
 };

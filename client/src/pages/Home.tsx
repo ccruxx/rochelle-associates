@@ -67,6 +67,20 @@ export default function Home() {
       icon: Award,
       href: "/practice-areas/domestic-violence",
       features: ["Protective Orders", "Emergency Hearings", "Evidence Analysis", "Plea Negotiations"]
+    },
+    {
+      title: "Tribal Family Law",
+      description: "Representing your family with tribal attorney expertise in specialized tribal courts.",
+      icon: Users,
+      href: "/practice-areas/tribal-family-law",
+      features: ["Tribal Divorces", "Tribal Adoptions", "Tribal Child Custody", "Guardianships"]
+    },
+    {
+      title: "Wills, Trusts & Probate",
+      description: "Estate planning and probate services to protect your family's future and legacy.",
+      icon: Shield,
+      href: "/practice-areas/wills-trusts-probate", 
+      features: ["Will Creation", "Estate Planning", "Probate Proceedings", "Trust Management"]
     }
   ];
 
@@ -133,7 +147,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {practiceAreas.map((area) => {
               const IconComponent = area.icon;
               return (
