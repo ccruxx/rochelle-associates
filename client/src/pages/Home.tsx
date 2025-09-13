@@ -223,11 +223,13 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-4 bg-muted/50 rounded-lg">
                   <div className="font-semibold text-primary">Education</div>
-                  <div className="text-sm text-muted-foreground">Oklahoma City University School of Law</div>
+                  <div className="text-sm text-muted-foreground">JD - San Diego University School of Law, 1988</div>
+                  <div className="text-sm text-muted-foreground">BA Accounting - University of Oklahoma, 1984</div>
                 </div>
                 <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-semibold text-primary">Bar Admission</div>
-                  <div className="text-sm text-muted-foreground">Oklahoma State Bar</div>
+                  <div className="font-semibold text-primary">Bar Admissions</div>
+                  <div className="text-sm text-muted-foreground">Oklahoma Bar Association, 2009</div>
+                  <div className="text-sm text-muted-foreground">California Bar Association, 1989</div>
                 </div>
                 <div className="p-4 bg-muted/50 rounded-lg">
                   <div className="font-semibold text-primary">Specialization</div>
