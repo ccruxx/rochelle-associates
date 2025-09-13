@@ -61,7 +61,7 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p data-testid="text-footer-address">123 Main Street<br />Lawton, OK 73501</p>
+                  <p data-testid="text-footer-address">511 SW C Ave<br />Lawton, OK 73501</p>
                 </div>
               </div>
               

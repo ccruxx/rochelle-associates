@@ -84,9 +84,9 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Address",
-      primary: "123 Main Street",
+      primary: "511 SW C Ave",
       secondary: "Lawton, OK 73501",
-      href: "https://maps.google.com/?q=123+Main+Street+Lawton+OK+73501"
+      href: "https://maps.google.com/?q=511+SW+C+Ave+Lawton+OK+73501"
     },
     {
       icon: Clock,
@@ -322,7 +322,7 @@ export default function Contact() {
                     <div className="text-center text-muted-foreground">
                       <MapPin className="w-12 h-12 mx-auto mb-2" />
                       <p className="font-medium">Interactive Map</p>
-                      <p className="text-sm">123 Main Street, Lawton, OK 73501</p>
+                      <p className="text-sm">511 SW C Ave, Lawton, OK 73501</p>
                     </div>
                   </div>
                   
