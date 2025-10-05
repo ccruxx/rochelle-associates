@@ -84,9 +84,9 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email", 
-      primary: "info@rochellelaw.com",
+      primary: "legalassistant.rochelle@gmail.com",
       secondary: "We respond within 4 hours",
-      href: "mailto:info@rochellelaw.com"
+      href: "mailto:legalassistant.rochelle@gmail.com"
     },
     {
       icon: MapPin,
