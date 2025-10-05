@@ -136,12 +136,106 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Services Section */}
+      <section className="py-16 bg-background border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+                Experienced Legal Representation in Lawton, Oklahoma
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Rochelle & Associates provides comprehensive legal services for{" "}
+                <Link href="/criminal-defense" className="text-primary font-semibold hover:underline" data-testid="link-home-criminal">
+                  Criminal Defense
+                </Link>
+                ,{" "}
+                <Link href="/dui-defense" className="text-primary font-semibold hover:underline" data-testid="link-home-dui">
+                  DUI Defense
+                </Link>
+                , and{" "}
+                <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-home-family">
+                  Family Law
+                </Link>{" "}
+                matters throughout Comanche County. With over 36 years of local courtroom experience, we fight to 
+                protect your rights, your freedom, and your family's future.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
+                <CardContent className="p-6">
+                  <Shield className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
+                    <Link href="/criminal-defense" className="hover:underline" data-testid="link-criminal-card">
+                      Criminal Defense Attorney
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Aggressive defense for felonies, misdemeanors, and federal crimes in Lawton and Comanche County. 
+                    Protecting your constitutional rights and fighting for your freedom with proven trial experience.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/criminal-defense" data-testid="button-criminal-services">
+                      View Criminal Defense Services
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
+                <CardContent className="p-6">
+                  <Scale className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
+                    <Link href="/dui-defense" className="hover:underline" data-testid="link-dui-card">
+                      DUI Defense Lawyer
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Time-sensitive defense for DUI/DWI charges in Oklahoma. Challenging breathalyzer tests, protecting 
+                    your license, and fighting to minimize penalties. Available 24/7 for Lawton arrests.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/dui-defense" data-testid="button-dui-services">
+                      View DUI Defense Services
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
+                <CardContent className="p-6">
+                  <Users className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
+                    <Link href="/family-law" className="hover:underline" data-testid="link-family-card">
+                      Family Law Attorney
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Compassionate representation for divorce, child custody, and domestic relations in Comanche County. 
+                    Protecting your family's interests during life's most difficult transitions.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/family-law" data-testid="button-family-services">
+                      View Family Law Services
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Practice Areas Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-              Areas of Practice
+              All Areas of Practice
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive legal services focused on criminal defense and family law matters throughout Oklahoma.

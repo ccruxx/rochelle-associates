@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { AlertTriangle, Phone, CheckCircle, Car, Scale, FileText, Shield } from "lucide-react";
+import { AlertTriangle, Phone, CheckCircle, Car, Scale, FileText, Shield, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
@@ -194,10 +194,32 @@ export default function DUIDefense() {
         </div>
       </section>
 
-      {/* Defense Strategies Section */}
+      {/* Local DUI Defense Expertise Section */}
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 text-center">
+              Experienced DUI Defense in Lawton Courts
+            </h2>
+            <div className="space-y-4 text-lg leading-relaxed mb-12">
+              <p>
+                When you're arrested for DUI in Lawton, you're facing two separate battles: criminal charges in Comanche 
+                County Court and an administrative license suspension through the Oklahoma Department of Public Safety. 
+                You need an attorney who knows how to fight both.
+              </p>
+              <p>
+                Attorney Robin Lee Rochelle has been defending DUI clients in Lawton for over 36 years. He understands 
+                Oklahoma's DUI laws inside and out, knows the local law enforcement procedures, and has successfully 
+                challenged countless DUI cases in Comanche County. From Fort Sill soldiers to Lawton residents, we've 
+                protected driving privileges and futures throughout southwest Oklahoma.
+              </p>
+              <p>
+                Don't make the mistake of pleading guilty without exploring your options. Many DUI arrests have serious 
+                flaws—from improper traffic stops to faulty breathalyzer calibration to violated constitutional rights. 
+                We investigate every detail to build the strongest possible defense for our clients.
+              </p>
+            </div>
+
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
               How We Defend DUI Cases in Comanche County
             </h2>
@@ -317,6 +339,61 @@ export default function DUIDefense() {
                       </p>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-primary mb-6 text-center">
+              Additional Legal Services We Provide
+            </h2>
+            <p className="text-lg text-center mb-8">
+              Beyond DUI defense, our firm handles{" "}
+              <Link href="/criminal-defense" className="text-primary font-semibold hover:underline" data-testid="link-to-criminal">
+                Criminal Defense
+              </Link>{" "}
+              and{" "}
+              <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-to-family-dui">
+                Family Law
+              </Link>{" "}
+              cases throughout Lawton and Comanche County.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">Criminal Defense Attorney</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Facing felony or misdemeanor charges? We provide aggressive criminal defense for drug crimes, assault, 
+                    theft, and all criminal charges in Comanche County. Protect your rights with experienced representation.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/criminal-defense" data-testid="button-learn-criminal">
+                      Learn About Criminal Defense
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">Family Law Matters</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Need help with divorce, child custody, or domestic relations? We provide compassionate family law 
+                    representation in Lawton, protecting your family's future during difficult times.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/family-law" data-testid="button-learn-family-dui">
+                      Learn About Family Law
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             </div>

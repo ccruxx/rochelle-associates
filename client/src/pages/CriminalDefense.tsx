@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Shield, Phone, CheckCircle, Scale, Gavel, AlertTriangle } from "lucide-react";
+import { Shield, Phone, CheckCircle, Scale, Gavel, AlertTriangle, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
@@ -153,10 +153,31 @@ export default function CriminalDefense() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Why Experience Matters Section */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 text-center">
+              Why Experience Matters in Criminal Defense
+            </h2>
+            <div className="space-y-4 text-lg leading-relaxed mb-12">
+              <p>
+                When you're facing criminal charges in Lawton, Oklahoma, the attorney you choose can make the difference 
+                between conviction and acquittal, jail time and freedom. With over 36 years practicing in Comanche County, 
+                Attorney Robin Lee Rochelle brings unmatched local knowledge to your defense.
+              </p>
+              <p>
+                Our deep familiarity with the Lawton court system means we know the local judges, understand prosecutor tactics, 
+                and have established relationships that benefit our clients. We've handled hundreds of cases in the very same 
+                courtrooms where your case will be heard, giving us insights that out-of-town attorneys simply don't have.
+              </p>
+              <p>
+                Every criminal case is unique, and we treat it that way. Whether you're facing your first misdemeanor charge 
+                or serious felony accusations, you'll receive personalized attention from an experienced trial attorney—not a 
+                paralegal or junior associate. Your future is too important to trust to anyone less.
+              </p>
+            </div>
+
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
               Why Choose Rochelle & Associates for Criminal Defense in Lawton
             </h2>
@@ -227,6 +248,61 @@ export default function CriminalDefense() {
                     We'll negotiate with prosecutors for charge reduction or dismissal when appropriate. If trial is necessary, 
                     you'll have an experienced trial attorney who has successfully defended hundreds of clients in Oklahoma courts.
                   </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-primary mb-6 text-center">
+              We Also Handle Related Legal Matters
+            </h2>
+            <p className="text-lg text-center mb-8">
+              In addition to criminal defense, Rochelle & Associates provides comprehensive legal services for{" "}
+              <Link href="/dui-defense" className="text-primary font-semibold hover:underline" data-testid="link-to-dui">
+                DUI Defense
+              </Link>{" "}
+              and{" "}
+              <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-to-family">
+                Family Law
+              </Link>{" "}
+              matters throughout Lawton and Comanche County.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">DUI Defense in Lawton</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Facing DUI charges? We aggressively challenge breathalyzer tests, field sobriety results, and fight 
+                    to protect your driving privileges. Time is critical—you have only 15 days to save your license.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/dui-defense" data-testid="button-learn-dui">
+                      Learn About DUI Defense
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">Family Law Services</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Navigating divorce, child custody, or domestic violence issues? We provide compassionate yet 
+                    strategic representation to protect your family's interests in Comanche County courts.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/family-law" data-testid="button-learn-family">
+                      Learn About Family Law
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             </div>

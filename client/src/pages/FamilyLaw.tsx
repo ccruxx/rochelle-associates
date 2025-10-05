@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Heart, Phone, CheckCircle, Users, Home, FileText, Scale } from "lucide-react";
+import { Heart, Phone, CheckCircle, Users, Home, FileText, Scale, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
@@ -284,10 +284,34 @@ export default function FamilyLaw() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Understanding Family Law in Oklahoma Section */}
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 text-center">
+              Understanding Family Law in Lawton and Comanche County
+            </h2>
+            <div className="space-y-4 text-lg leading-relaxed mb-12">
+              <p>
+                Family law cases in Oklahoma require an attorney who understands not just the law, but also the local 
+                courts, judges, and procedures specific to Comanche County. Attorney Robin Lee Rochelle has practiced 
+                family law in Lawton for over three decades, giving him unique insights into how these cases are handled 
+                in our local court system.
+              </p>
+              <p>
+                Whether you're going through a difficult divorce, fighting for custody of your children, or need to 
+                establish child support, the decisions made during your family law case will affect you and your family 
+                for years to come. That's why it's critical to have an experienced Lawton attorney who will fight to 
+                protect your interests while helping you navigate this emotional process.
+              </p>
+              <p>
+                We understand that many families in Lawton have unique situations—military families stationed at Fort Sill, 
+                families with tribal court considerations, and blended families with complex custody needs. Our firm has 
+                handled all types of family law matters in Comanche County and knows how to address these special circumstances 
+                effectively.
+              </p>
+            </div>
+
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
               Why Choose Rochelle & Associates for Family Law in Lawton
             </h2>
@@ -326,6 +350,61 @@ export default function FamilyLaw() {
                   <p className="leading-relaxed">
                     Hundreds of successful family law cases including complex custody disputes, high-asset divorces, and protective orders.
                   </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-primary mb-6 text-center">
+              Complete Legal Services for Your Needs
+            </h2>
+            <p className="text-lg text-center mb-8">
+              In addition to family law, we offer experienced legal representation for{" "}
+              <Link href="/criminal-defense" className="text-primary font-semibold hover:underline" data-testid="link-to-criminal-family">
+                Criminal Defense
+              </Link>{" "}
+              and{" "}
+              <Link href="/dui-defense" className="text-primary font-semibold hover:underline" data-testid="link-to-dui-family">
+                DUI Defense
+              </Link>{" "}
+              matters in Lawton and Comanche County.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">Criminal Defense in Lawton</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Arrested for a crime? We provide aggressive defense for all criminal charges including felonies, 
+                    misdemeanors, and federal crimes. Protect your freedom with 36+ years of courtroom experience.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/criminal-defense" data-testid="button-learn-criminal-family">
+                      Learn About Criminal Defense
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-3">DUI Defense Attorney</h3>
+                  <p className="mb-4 leading-relaxed">
+                    Facing DUI or DWI charges in Oklahoma? We fight to protect your license and freedom. Time-sensitive 
+                    defense to challenge tests and minimize penalties. Available 24/7 for arrests.
+                  </p>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href="/dui-defense" data-testid="button-learn-dui-family">
+                      Learn About DUI Defense
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             </div>
