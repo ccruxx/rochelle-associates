@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rochellelaw.com/sitemap.xml
+Sitemap: https://rochelle-associates.com/sitemap.xml
