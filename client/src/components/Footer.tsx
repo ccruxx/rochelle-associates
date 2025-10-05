@@ -5,12 +5,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const practiceAreas = [
-    "Criminal Defense",
-    "DUI Defense", 
-    "Family Law",
-    "Domestic Violence",
-    "Tribal Family Law",
-    "Wills, Trusts & Probate"
+    { name: "Criminal Defense", href: "/criminal-defense" },
+    { name: "DUI Defense", href: "/dui-defense" }, 
+    { name: "Family Law", href: "/family-law" },
+    { name: "Domestic Violence", href: "/practice-areas/domestic-violence" },
+    { name: "Tribal Family Law", href: "/practice-areas/tribal-family-law" },
+    { name: "Wills, Trusts & Probate", href: "/practice-areas/wills-trusts-probate" }
   ];
 
   const quickLinks = [
@@ -83,13 +83,13 @@ export function Footer() {
             <h4 className="font-semibold text-lg">Practice Areas</h4>
             <ul className="space-y-2">
               {practiceAreas.map((area) => (
-                <li key={area}>
+                <li key={area.name}>
                   <Link 
-                    href={`/practice-areas/${area.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={area.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                    data-testid={`link-footer-${area.toLowerCase().replace(/\s+/g, '-')}`}
+                    data-testid={`link-footer-${area.name.toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    {area}
+                    {area.name}
                   </Link>
                 </li>
               ))}

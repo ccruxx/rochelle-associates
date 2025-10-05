@@ -3,8 +3,16 @@ import { Award, Users, Shield, Clock, CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import robinPhoto from "@assets/image_1757800548582.png";
+import { useEffect } from "react";
 
 export default function About() {
+  useEffect(() => {
+    document.title = "About Robin Lee Rochelle | Attorney Lawton OK | Rochelle & Associates";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Meet Robin Lee Rochelle, experienced attorney in Lawton, OK with 36+ years in criminal defense and family law. Appointed to Professional Responsibility Commission.");
+    }
+  }, []);
   const firmValues = [
     {
       icon: Shield,

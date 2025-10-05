@@ -1,0 +1,67 @@
+✅ Step 1: Expand the Sitemap
+
+As you build more pages (criminal-defense, family-law, etc.), you’ll want those included automatically.
+After you publish new pages:
+
+Re-run the free generator at xml-sitemaps.com
+.
+
+Download the updated sitemap.xml.
+
+Replace the existing sitemap file on your site with the new one.
+
+Go to Google Search Console → Sitemaps, and click “Resubmit.”
+
+That tells Google: “Hey, crawl these new pages too.”
+
+✅ Step 2: Build Out Core SEO Pages
+
+Right now, your site probably only has “Home” and maybe “About” and “Contact.”
+To regain rankings fast and strengthen your GBP connection, build these essential Lawton-focused pages:
+
+Page URL	Purpose	Notes
+/criminal-defense	Main money page for search term “criminal defense attorney Lawton OK”	Use a headline like “Experienced Criminal Defense Attorney in Lawton, OK”
+/dui-defense	Capture “DUI lawyer Lawton OK”	Mention local courts and process
+/family-law	Rank for “family attorney Lawton OK”	Include divorce, custody, etc.
+/about	Establish credibility	Include 36 years experience, Robin Rochelle bio
+/contact	Local SEO + conversion	Include map embed, tap-to-call, directions
+✅ Step 3: Optimize Each Page
+
+When creating each page:
+
+Use Lawton, OK in your page title, meta description, and headers.
+
+Include one strong internal link from your homepage and to your contact page.
+
+Add a call-to-action at the bottom (“Call (580) 248-1822 for a free consultation.”).
+
+Include schema markup (I can give you a quick template per page type).
+
+✅ Step 4: Keep the Homepage Tight
+
+Your homepage should now link clearly to each of those new service pages.
+That interlinking helps Google understand your structure.
+
+Example footer or menu:
+
+Criminal Defense | DUI Defense | Family Law | About | Contact
+
+✅ Step 5: Re-Submit After New Content
+
+Each time you add pages:
+
+Update the sitemap.
+
+Re-submit it in Search Console.
+
+Use “Request Indexing” on each new page URL.
+
+✅ Step 6: Add One or Two Local Blog Posts
+
+After your core service pages are up, post short, locally-relevant articles:
+
+“What to Expect After a DUI Arrest in Lawton, OK”
+
+“How Criminal Cases Work in Comanche County Court”
+
+They build topical authority quickly.

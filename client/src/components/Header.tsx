@@ -25,9 +25,9 @@ export function Header() {
   ];
 
   const practiceAreas = [
-    { href: "/practice-areas/criminal-defense", label: "Criminal Defense" },
-    { href: "/practice-areas/dui-defense", label: "DUI Defense" },
-    { href: "/practice-areas/family-law", label: "Family Law" },
+    { href: "/criminal-defense", label: "Criminal Defense" },
+    { href: "/dui-defense", label: "DUI Defense" },
+    { href: "/family-law", label: "Family Law" },
     { href: "/practice-areas/domestic-violence", label: "Domestic Violence" },
     { href: "/practice-areas/tribal-family-law", label: "Tribal Family Law" },
     { href: "/practice-areas/wills-trusts-probate", label: "Wills, Trusts & Probate" }

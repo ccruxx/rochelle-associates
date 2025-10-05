@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,6 +13,13 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact Rochelle & Associates | Lawton OK Criminal Defense Attorney";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Contact Rochelle & Associates in Lawton, OK for a free consultation. Located at 511 SW C Ave. Call (580) 248-1822 for criminal defense and family law representation.");
+    }
+  }, []);
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [isSubmitted, setIsSubmitted] = useState(false);

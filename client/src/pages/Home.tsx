@@ -45,21 +45,21 @@ export default function Home() {
       title: "Criminal Defense",
       description: "Aggressive defense for felonies, misdemeanors, and federal crimes. Protecting your rights and future.",
       icon: Shield,
-      href: "/practice-areas/criminal-defense",
+      href: "/criminal-defense",
       features: ["Drug Crimes", "Theft & Burglary", "Assault & Battery", "White Collar Crimes"]
     },
     {
       title: "DUI Defense", 
       description: "Expert defense against DUI charges. Challenging evidence and protecting your driving privileges.",
       icon: Scale,
-      href: "/practice-areas/dui-defense", 
+      href: "/dui-defense", 
       features: ["Field Sobriety Tests", "Breathalyzer Defense", "License Suspension", "Repeat Offenses"]
     },
     {
       title: "Family Law",
       description: "Compassionate representation for divorce, custody, and family matters during difficult times.",
       icon: Users,
-      href: "/practice-areas/family-law",
+      href: "/family-law",
       features: ["Divorce & Separation", "Child Custody", "Child Support", "Protective Orders"]
     },
     {
