@@ -1,39 +1,53 @@
 import { Link } from "wouter";
 import { Award, Users, Shield, Clock, CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import robinPhoto from "@assets/image_1757800548582.png";
 import { useEffect } from "react";
 
 export default function About() {
   useEffect(() => {
-    document.title = "About Robin Lee Rochelle | Attorney Lawton OK | Rochelle & Associates";
+    document.title =
+      "About Robin Lee Rochelle | Attorney Lawton OK | Rochelle & Associates";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Meet Robin Lee Rochelle, experienced attorney in Lawton, OK with 36+ years in criminal defense and family law. Appointed to Professional Responsibility Commission.");
+      metaDescription.setAttribute(
+        "content",
+        "Meet Robin Lee Rochelle, experienced attorney in Lawton, OK with 36+ years in criminal defense and family law. Appointed to Professional Responsibility Commission.",
+      );
     }
   }, []);
   const firmValues = [
     {
       icon: Shield,
       title: "Aggressive Defense",
-      description: "We fight tirelessly to protect your rights and achieve the best possible outcome for your case."
+      description:
+        "We fight tirelessly to protect your rights and achieve the best possible outcome for your case.",
     },
     {
       icon: Users,
       title: "Personal Attention",
-      description: "Every client receives direct access to Attorney Rochelle and personalized legal strategies."
+      description:
+        "Every client receives direct access to Attorney Rochelle and personalized legal strategies.",
     },
     {
       icon: Clock,
       title: "Available When Needed",
-      description: "Legal emergencies don't wait for business hours. We're available 24/7 for urgent matters."
+      description:
+        "Legal emergencies don't wait for business hours. We're available 24/7 for urgent matters.",
     },
     {
       icon: Award,
       title: "Proven Experience",
-      description: "36+ years of successful representation in Oklahoma courts with a track record of positive results."
-    }
+      description:
+        "36+ years of successful representation in Oklahoma courts with a track record of positive results.",
+    },
   ];
 
   const achievements = [
@@ -44,7 +58,7 @@ export default function About() {
     "Extensive family law and domestic relations experience",
     "Member of Oklahoma Bar Association",
     "Continuing legal education instructor",
-    "Recognition for ethical practice standards"
+    "Recognition for ethical practice standards",
   ];
 
   return (
@@ -53,12 +67,16 @@ export default function About() {
       <section className="bg-gradient-to-br from-primary to-primary/90 text-primary-foreground py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6" data-testid="text-about-headline">
+            <h1
+              className="text-4xl md:text-5xl font-serif font-bold mb-6"
+              data-testid="text-about-headline"
+            >
               About Rochelle & Associates
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 leading-relaxed">
-              Three decades of dedicated legal service to the Lawton, Oklahoma community. 
-              Providing experienced representation when it matters most.
+              Three decades of dedicated legal service to the Lawton, Oklahoma
+              community. Providing experienced representation when it matters
+              most.
             </p>
           </div>
         </div>
@@ -77,34 +95,39 @@ export default function About() {
                   Founding Attorney & Lead Counsel
                 </p>
               </div>
-              
+
               <div className="space-y-4 text-lg leading-relaxed">
                 <p>
-                  Robin Lee Rochelle founded Rochelle & Associates with a simple mission: to provide 
-                  aggressive, ethical, and effective legal representation to individuals facing their 
-                  most challenging legal situations. With over 36 years of practice in Oklahoma, 
-                  Attorney Rochelle has built a reputation for thorough preparation, strategic thinking, 
-                  and unwavering advocacy for his clients.
+                  Robin Lee Rochelle founded Rochelle & Associates with a simple
+                  mission: to provide ethical, effective, and assertive legal
+                  representation to individuals facing their most challenging
+                  situations. With more than 36 years of practice in Oklahoma,
+                  Attorney Rochelle has built a reputation for thorough
+                  preparation, strategic thinking, and unwavering dedication to
+                  his clients.
                 </p>
-                
+
                 <p>
-                  His appointment to the Professional Responsibility Commission by the Oklahoma Supreme 
-                  Court reflects his commitment to maintaining the highest ethical standards in the 
-                  legal profession. This prestigious appointment demonstrates the respect and trust 
-                  he has earned among his peers and the judicial community.
+                  His appointment to the Professional Responsibility Commission
+                  by the Oklahoma Supreme Court reflects his ongoing commitment
+                  to the highest ethical standards in the legal profession — a
+                  distinction that underscores the respect and trust he has
+                  earned among colleagues and the judiciary.
                 </p>
-                
+
                 <p>
-                  Attorney Rochelle specializes in criminal defense and family law, areas where 
-                  individuals and families face life-changing decisions and consequences. He understands 
-                  that behind every case is a person whose future, family, and freedom may be at stake.
+                  Attorney Rochelle focuses his practice on criminal defense and
+                  family law — areas where individuals and families face
+                  life-changing decisions and consequences. He understands that
+                  behind every case is a person whose future, family, and
+                  freedom may be at stake.
                 </p>
-                
+
                 <p>
-                  Throughout his career, he has successfully defended clients against a wide range 
-                  of criminal charges, from misdemeanors to serious felonies, and has helped families 
-                  navigate complex divorce, custody, and domestic relations matters with compassion 
-                  and skill.
+                  Over the course of his career, he has represented clients in
+                  cases ranging from misdemeanors to serious felonies, and has
+                  guided families through complex divorce, custody, and
+                  domestic-relations matters with compassion and skill.
                 </p>
               </div>
 
@@ -112,27 +135,45 @@ export default function About() {
                 <Card className="border-0 bg-muted/50">
                   <CardContent className="p-4">
                     <div className="font-semibold text-primary">Education</div>
-                    <div className="text-sm text-muted-foreground">JD - San Diego University School of Law, 1988</div>
-                    <div className="text-sm text-muted-foreground">BA Accounting - University of Oklahoma, 1984</div>
+                    <div className="text-sm text-muted-foreground">
+                      JD - San Diego University School of Law, 1988
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      BA Accounting - University of Oklahoma, 1984
+                    </div>
                   </CardContent>
                 </Card>
                 <Card className="border-0 bg-muted/50">
                   <CardContent className="p-4">
-                    <div className="font-semibold text-primary">Bar Admissions</div>
-                    <div className="text-sm text-muted-foreground">Oklahoma Bar Association, 2009</div>
-                    <div className="text-sm text-muted-foreground">California Bar Association, 1989</div>
+                    <div className="font-semibold text-primary">
+                      Bar Admissions
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Oklahoma Bar Association, 2009
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      California Bar Association, 1989
+                    </div>
                   </CardContent>
                 </Card>
                 <Card className="border-0 bg-muted/50">
                   <CardContent className="p-4">
-                    <div className="font-semibold text-primary">Practice Areas</div>
-                    <div className="text-sm text-muted-foreground">Criminal Defense & Family Law</div>
+                    <div className="font-semibold text-primary">
+                      Practice Areas
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Criminal Defense & Family Law
+                    </div>
                   </CardContent>
                 </Card>
                 <Card className="border-0 bg-muted/50">
                   <CardContent className="p-4">
-                    <div className="font-semibold text-primary">Special Appointment</div>
-                    <div className="text-sm text-muted-foreground">Professional Responsibility Commission</div>
+                    <div className="font-semibold text-primary">
+                      Special Appointment
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Professional Responsibility Commission
+                    </div>
                   </CardContent>
                 </Card>
               </div>
@@ -141,8 +182,8 @@ export default function About() {
             <div className="space-y-6">
               {/* Professional Photo */}
               <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src={robinPhoto} 
+                <img
+                  src={robinPhoto}
                   alt="Robin Lee Rochelle, Founding Attorney at Rochelle & Associates"
                   className="w-full h-full object-cover object-center"
                   data-testid="img-attorney-robin-about"
@@ -181,7 +222,8 @@ export default function About() {
               Our Commitment to You
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The values that guide our practice and our promise to every client who trusts us with their case.
+              The values that guide our practice and our promise to every client
+              who trusts us with their case.
             </p>
           </div>
 
@@ -189,12 +231,17 @@ export default function About() {
             {firmValues.map((value) => {
               const IconComponent = value.icon;
               return (
-                <Card key={value.title} className="text-center border-0 bg-background">
+                <Card
+                  key={value.title}
+                  className="text-center border-0 bg-background"
+                >
                   <CardHeader>
                     <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                       <IconComponent className="w-8 h-8 text-primary" />
                     </div>
-                    <CardTitle className="text-xl font-serif">{value.title}</CardTitle>
+                    <CardTitle className="text-xl font-serif">
+                      {value.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="text-base leading-relaxed">
@@ -220,34 +267,48 @@ export default function About() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-6">
-                <h3 className="text-2xl font-serif font-semibold text-primary">Local Knowledge & Experience</h3>
+                <h3 className="text-2xl font-serif font-semibold text-primary">
+                  Local Knowledge & Experience
+                </h3>
                 <p className="text-lg leading-relaxed">
-                  As a long-time member of the Lawton legal community, Attorney Rochelle knows the local courts, 
-                  prosecutors, and judges. This familiarity allows him to craft effective strategies tailored 
-                  to the specific practices and preferences of the local legal system.
+                  As a long-time member of the Lawton legal community, Attorney
+                  Rochelle knows the local courts, prosecutors, and judges. This
+                  familiarity allows him to craft effective strategies tailored
+                  to the specific practices and preferences of the local legal
+                  system.
                 </p>
-                
-                <h3 className="text-2xl font-serif font-semibold text-primary">Personalized Legal Strategies</h3>
+
+                <h3 className="text-2xl font-serif font-semibold text-primary">
+                  Personalized Legal Strategies
+                </h3>
                 <p className="text-lg leading-relaxed">
-                  We understand that every case is unique, with its own set of circumstances and challenges. 
-                  Rather than using a one-size-fits-all approach, we develop customized legal strategies 
-                  designed specifically for your situation and goals.
+                  We understand that every case is unique, with its own set of
+                  circumstances and challenges. Rather than using a
+                  one-size-fits-all approach, we develop customized legal
+                  strategies designed specifically for your situation and goals.
                 </p>
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-2xl font-serif font-semibold text-primary">Direct Attorney Access</h3>
+                <h3 className="text-2xl font-serif font-semibold text-primary">
+                  Direct Attorney Access
+                </h3>
                 <p className="text-lg leading-relaxed">
-                  When you hire Rochelle & Associates, you work directly with Attorney Rochelle, not with 
-                  paralegals or junior attorneys. You'll have his personal phone number and direct access 
-                  to discuss your case whenever you have questions or concerns.
+                  When you hire Rochelle & Associates, you work directly with
+                  Attorney Rochelle, not with paralegals or junior attorneys.
+                  You'll have his personal phone number and direct access to
+                  discuss your case whenever you have questions or concerns.
                 </p>
-                
-                <h3 className="text-2xl font-serif font-semibold text-primary">Ethical Excellence</h3>
+
+                <h3 className="text-2xl font-serif font-semibold text-primary">
+                  Ethical Excellence
+                </h3>
                 <p className="text-lg leading-relaxed">
-                  Our appointment to the Professional Responsibility Commission demonstrates our commitment 
-                  to the highest ethical standards. You can trust that your case will be handled with 
-                  integrity, honesty, and in full compliance with all professional conduct rules.
+                  Our appointment to the Professional Responsibility Commission
+                  demonstrates our commitment to the highest ethical standards.
+                  You can trust that your case will be handled with integrity,
+                  honesty, and in full compliance with all professional conduct
+                  rules.
                 </p>
               </div>
             </div>
@@ -262,14 +323,15 @@ export default function About() {
             Experience Makes the Difference
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90">
-            When your future is on the line, trust the experience and dedication of Rochelle & Associates. 
-            Contact us today for a free consultation about your case.
+            When your future is on the line, trust the experience and dedication
+            of Rochelle & Associates. Contact us today for a free consultation
+            about your case.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              asChild 
-              size="lg" 
+            <Button
+              asChild
+              size="lg"
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8 py-4"
             >
               <Link href="/contact" data-testid="button-about-contact">
@@ -277,7 +339,7 @@ export default function About() {
                 Schedule Your Free Consultation
               </Link>
             </Button>
-            
+
             <div className="flex items-center text-lg font-semibold">
               <Phone className="mr-2 h-5 w-5" />
               <span data-testid="text-about-phone">(580) 248-1822</span>

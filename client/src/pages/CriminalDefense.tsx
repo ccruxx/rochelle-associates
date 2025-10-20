@@ -1,15 +1,27 @@
 import { Link } from "wouter";
-import { Shield, Phone, CheckCircle, Scale, Gavel, AlertTriangle, ChevronRight } from "lucide-react";
+import {
+  Shield,
+  Phone,
+  CheckCircle,
+  Scale,
+  Gavel,
+  AlertTriangle,
+  ChevronRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
 
 export default function CriminalDefense() {
   useEffect(() => {
-    document.title = "Criminal Defense Attorney Lawton OK | Rochelle & Associates";
+    document.title =
+      "Criminal Defense Attorney Lawton OK | Rochelle & Associates";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Experienced criminal defense attorney in Lawton, OK with 36+ years defending clients in Comanche County. Call (580) 248-1822 for a free consultation.");
+      metaDescription.setAttribute(
+        "content",
+        "Experienced criminal defense attorney in Lawton, OK with 36+ years defending clients in Comanche County. Call (580) 248-1822 for a free consultation.",
+      );
     }
   }, []);
 
@@ -17,23 +29,27 @@ export default function CriminalDefense() {
     {
       icon: AlertTriangle,
       title: "Felony Charges",
-      description: "Aggressive defense against serious felony charges including drug crimes, assault, theft, and weapons offenses in Comanche County courts."
+      description:
+        "Aggressive defense against serious felony charges including drug crimes, assault, theft, and weapons offenses in Comanche County courts.",
     },
     {
       icon: Scale,
       title: "Misdemeanor Offenses",
-      description: "Strategic representation for misdemeanor charges to minimize impact on your record and future opportunities."
+      description:
+        "Strategic representation for misdemeanor charges to minimize impact on your record and future opportunities.",
     },
     {
       icon: Gavel,
       title: "Federal Crimes",
-      description: "Experienced defense in federal court for complex white-collar crimes and federal charges."
+      description:
+        "Experienced defense in federal court for complex white-collar crimes and federal charges.",
     },
     {
       icon: Shield,
       title: "Domestic Violence",
-      description: "Compassionate yet aggressive defense for domestic violence allegations with understanding of Oklahoma family dynamics."
-    }
+      description:
+        "Compassionate yet aggressive defense for domestic violence allegations with understanding of Oklahoma family dynamics.",
+    },
   ];
 
   const whyChoose = [
@@ -44,7 +60,7 @@ export default function CriminalDefense() {
     "Appointed to Professional Responsibility Commission",
     "Extensive trial experience in Oklahoma courts",
     "Free initial consultation to discuss your case",
-    "Available 24/7 for emergencies and arrests"
+    "Available 24/7 for emergencies and arrests",
   ];
 
   return (
@@ -53,16 +69,20 @@ export default function CriminalDefense() {
       <section className="bg-gradient-to-br from-primary to-primary/90 text-primary-foreground py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6" data-testid="text-criminal-defense-headline">
+            <h1
+              className="text-4xl md:text-5xl font-serif font-bold mb-6"
+              data-testid="text-criminal-defense-headline"
+            >
               Experienced Criminal Defense Attorney in Lawton, OK
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 leading-relaxed">
-              Protecting Your Rights and Freedom in Comanche County Courts for Over 36 Years
+              Protecting Your Rights and Freedom in Comanche County Courts for
+              Over 36 Years
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8"
                 data-testid="button-call-now"
               >
@@ -71,16 +91,14 @@ export default function CriminalDefense() {
                   Call (580) 248-1822
                 </a>
               </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline" 
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
                 className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
                 data-testid="button-free-consultation"
               >
-                <Link href="/contact">
-                  Free Consultation
-                </Link>
+                <Link href="/contact">Free Consultation</Link>
               </Button>
             </div>
           </div>
@@ -96,18 +114,23 @@ export default function CriminalDefense() {
             </h2>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                If you're facing criminal charges in Lawton, Oklahoma, your freedom, reputation, and future are on the line. 
-                You need an experienced criminal defense attorney who knows the Comanche County courts, prosecutors, and judges.
+                If you're facing criminal charges in Lawton, Oklahoma, your
+                freedom, reputation, and future are on the line. You need an
+                experienced criminal defense attorney who knows the Comanche
+                County courts, prosecutors, and judges.
               </p>
               <p>
-                Robin Lee Rochelle has been defending clients in Lawton for over 36 years. As a former insurance defense 
-                attorney who practiced in California before returning to Oklahoma, he understands how prosecutors build their 
-                cases - and more importantly, how to dismantle them.
+                Robin Lee Rochelle has been defending clients in Lawton for over
+                36 years. As a former insurance defense attorney who practiced
+                in California before returning to Oklahoma, he understands how
+                prosecutors build their cases - and more importantly, how to
+                dismantle them.
               </p>
               <p>
-                Whether you're facing felony charges, misdemeanor offenses, or federal crimes, Attorney Rochelle provides 
-                aggressive, ethical representation focused on protecting your constitutional rights and achieving the best 
-                possible outcome for your case.
+                Whether you're facing felony charges, misdemeanor offenses, or
+                federal crimes, Attorney Rochelle provides aggressive, ethical
+                representation focused on protecting your constitutional rights
+                and achieving the best possible outcome for your case.
               </p>
             </div>
           </div>
@@ -122,7 +145,8 @@ export default function CriminalDefense() {
               Criminal Defense Cases We Handle in Lawton
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive criminal defense representation for all charges in Oklahoma state and federal courts.
+              Comprehensive criminal defense representation for all charges in
+              Oklahoma state and federal courts.
             </p>
           </div>
 
@@ -137,7 +161,9 @@ export default function CriminalDefense() {
                         <IconComponent className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <CardTitle className="text-xl font-serif">{caseType.title}</CardTitle>
+                        <CardTitle className="text-xl font-serif">
+                          {caseType.title}
+                        </CardTitle>
                       </div>
                     </div>
                   </CardHeader>
@@ -162,26 +188,34 @@ export default function CriminalDefense() {
             </h2>
             <div className="space-y-4 text-lg leading-relaxed mb-12">
               <p>
-                When you're facing criminal charges in Lawton, Oklahoma, the attorney you choose can make the difference 
-                between conviction and acquittal, jail time and freedom. With over 36 years practicing in Comanche County, 
-                Attorney Robin Lee Rochelle brings unmatched local knowledge to your defense.
+                When you’re facing criminal charges in Lawton, Oklahoma, the
+                attorney you choose can have a major impact on how your case is
+                handled and resolved. With more than 36 years of experience
+                practicing in Comanche County, Attorney Robin Lee Rochelle
+                brings deep local insight and seasoned judgment to every
+                defense.
               </p>
               <p>
-                Our deep familiarity with the Lawton court system means we know the local judges, understand prosecutor tactics, 
-                and have established relationships that benefit our clients. We've handled hundreds of cases in the very same 
-                courtrooms where your case will be heard, giving us insights that out-of-town attorneys simply don't have.
+                Our deep experience in the Lawton court system means we
+                understand local procedures, courtroom dynamics, and how
+                prosecutors typically approach cases. Having handled hundreds of
+                matters in these same courtrooms, we bring practical insight
+                that helps us prepare the strongest possible defense for each
+                client.
               </p>
               <p>
-                Every criminal case is unique, and we treat it that way. Whether you're facing your first misdemeanor charge 
-                or serious felony accusations, you'll receive personalized attention from an experienced trial attorney—not a 
-                paralegal or junior associate. Your future is too important to trust to anyone less.
+                Every criminal case is unique, and we treat it that way. Whether
+                you're facing your first misdemeanor charge or serious felony
+                accusations, you'll receive personalized attention from an
+                experienced trial attorney—not a paralegal or junior associate.
+                Your future is too important to trust to anyone less.
               </p>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
               Why Choose Rochelle & Associates for Criminal Defense in Lawton
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               {whyChoose.map((reason, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -193,9 +227,14 @@ export default function CriminalDefense() {
 
             <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg">
               <p className="text-lg leading-relaxed">
-                <strong className="text-primary">Local Knowledge Matters:</strong> Attorney Rochelle has practiced in Lawton 
-                for decades and knows the local court system inside and out. This familiarity with Comanche County judges, 
-                prosecutors, and court procedures gives our clients a significant advantage in developing effective defense strategies.
+                <strong className="text-primary">
+                  Local Knowledge Matters:
+                </strong>{" "}
+                Attorney Rochelle has practiced in Lawton for decades and knows
+                the local court system inside and out. This familiarity with
+                Comanche County judges, prosecutors, and court procedures gives
+                our clients a significant advantage in developing effective
+                defense strategies.
               </p>
             </div>
           </div>
@@ -209,44 +248,60 @@ export default function CriminalDefense() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-8 text-center">
               What to Expect After a Criminal Arrest in Lawton, OK
             </h2>
-            
+
             <div className="space-y-6">
               <Card className="border-0 bg-background">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">1. Immediate Legal Representation</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    1. Immediate Legal Representation
+                  </h3>
                   <p className="text-lg leading-relaxed">
-                    Contact Rochelle & Associates immediately after arrest. We're available 24/7 to protect your rights from 
-                    the start. The sooner we get involved, the better we can protect your interests.
+                    Contact Rochelle & Associates immediately after arrest.
+                    We're available 24/7 to protect your rights from the start.
+                    The sooner we get involved, the better we can protect your
+                    interests.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-0 bg-background">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">2. Initial Court Appearance</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    2. Initial Court Appearance
+                  </h3>
                   <p className="text-lg leading-relaxed">
-                    We'll represent you at your arraignment in Comanche County Court, where charges are formally read and 
-                    bail is set. Having an experienced attorney at this stage is crucial for securing reasonable bail terms.
+                    We'll represent you at your arraignment in Comanche County
+                    Court, where charges are formally read and bail is set.
+                    Having an experienced attorney at this stage is crucial for
+                    securing reasonable bail terms.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-0 bg-background">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">3. Case Investigation & Strategy</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    3. Case Investigation & Strategy
+                  </h3>
                   <p className="text-lg leading-relaxed">
-                    We thoroughly investigate your case, review evidence, interview witnesses, and identify weaknesses in the 
-                    prosecution's case. Every case receives a customized defense strategy.
+                    We thoroughly investigate your case, review evidence,
+                    interview witnesses, and identify weaknesses in the
+                    prosecution's case. Every case receives a customized defense
+                    strategy.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-0 bg-background">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">4. Negotiation or Trial</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    4. Negotiation or Trial
+                  </h3>
                   <p className="text-lg leading-relaxed">
-                    We'll negotiate with prosecutors for charge reduction or dismissal when appropriate. If trial is necessary, 
-                    you'll have an experienced trial attorney who has successfully defended hundreds of clients in Oklahoma courts.
+                    We'll negotiate with prosecutors for charge reduction or
+                    dismissal when appropriate. If trial is necessary, you'll
+                    have an experienced trial attorney who has successfully
+                    defended hundreds of clients in Oklahoma courts.
                   </p>
                 </CardContent>
               </Card>
@@ -263,12 +318,21 @@ export default function CriminalDefense() {
               We Also Handle Related Legal Matters
             </h2>
             <p className="text-lg text-center mb-8">
-              In addition to criminal defense, Rochelle & Associates provides comprehensive legal services for{" "}
-              <Link href="/dui-defense" className="text-primary font-semibold hover:underline" data-testid="link-to-dui">
+              In addition to criminal defense, Rochelle & Associates provides
+              comprehensive legal services for{" "}
+              <Link
+                href="/dui-defense"
+                className="text-primary font-semibold hover:underline"
+                data-testid="link-to-dui"
+              >
                 DUI Defense
               </Link>{" "}
               and{" "}
-              <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-to-family">
+              <Link
+                href="/family-law"
+                className="text-primary font-semibold hover:underline"
+                data-testid="link-to-family"
+              >
                 Family Law
               </Link>{" "}
               matters throughout Lawton and Comanche County.
@@ -276,10 +340,14 @@ export default function CriminalDefense() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">DUI Defense in Lawton</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    DUI Defense in Lawton
+                  </h3>
                   <p className="mb-4 leading-relaxed">
-                    Facing DUI charges? We aggressively challenge breathalyzer tests, field sobriety results, and fight 
-                    to protect your driving privileges. Time is critical—you have only 15 days to save your license.
+                    Facing DUI charges? We aggressively challenge breathalyzer
+                    tests, field sobriety results, and fight to protect your
+                    driving privileges. Time is critical—you have only 15 days
+                    to save your license.
                   </p>
                   <Button asChild variant="outline" className="w-full">
                     <Link href="/dui-defense" data-testid="button-learn-dui">
@@ -292,10 +360,14 @@ export default function CriminalDefense() {
 
               <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">Family Law Services</h3>
+                  <h3 className="text-xl font-semibold text-primary mb-3">
+                    Family Law Services
+                  </h3>
                   <p className="mb-4 leading-relaxed">
-                    Navigating divorce, child custody, or domestic violence issues? We provide compassionate yet 
-                    strategic representation to protect your family's interests in Comanche County courts.
+                    Navigating divorce, child custody, or domestic violence
+                    issues? We provide compassionate yet strategic
+                    representation to protect your family's interests in
+                    Comanche County courts.
                   </p>
                   <Button asChild variant="outline" className="w-full">
                     <Link href="/family-law" data-testid="button-learn-family">
@@ -317,14 +389,15 @@ export default function CriminalDefense() {
             Don't Face Criminal Charges Alone in Lawton
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto text-primary-foreground/90 leading-relaxed">
-            Every moment counts when you're facing criminal charges. Contact Rochelle & Associates today for a free 
-            consultation about your case. We're here to protect your rights and fight for your freedom.
+            Every moment counts when you're facing criminal charges. Contact
+            Rochelle & Associates today for a free consultation about your case.
+            We're here to protect your rights and fight for your freedom.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              asChild 
-              size="lg" 
+            <Button
+              asChild
+              size="lg"
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8 py-4"
               data-testid="button-cta-call"
             >
@@ -333,17 +406,15 @@ export default function CriminalDefense() {
                 Call (580) 248-1822 Now
               </a>
             </Button>
-            
-            <Button 
-              asChild 
+
+            <Button
+              asChild
               size="lg"
               variant="outline"
               className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-4"
               data-testid="button-cta-contact"
             >
-              <Link href="/contact">
-                Schedule Free Consultation
-              </Link>
+              <Link href="/contact">Schedule Free Consultation</Link>
             </Button>
           </div>
 
