@@ -1,0 +1,105 @@
+🗺️ Why You Should Add a Map
+🔍 1. Boosts Local SEO Authority
+
+Embedding a Google Map with your verified Google Business Profile tells Google exactly where your office is located and reinforces NAP (Name, Address, Phone) consistency.
+
+It improves visibility for searches like “lawyer near me” or “Lawton criminal defense attorney.”
+
+It can help your business appear in the local 3-pack map results.
+
+👀 2. Builds Immediate Trust
+
+A visible map tells visitors:
+
+“This is a real, local office right here in Lawton.”
+
+It signals professionalism and transparency — important for law firms.
+
+Especially valuable for out-of-town visitors (e.g., Fort Sill families) looking for directions.
+
+📱 3. Improves Mobile UX
+
+On mobile, people want to tap and get directions quickly.
+
+You can include a small “Get Directions” button under the map that opens Google Maps directly.
+
+🧭 How to Implement It Right
+✅ Placement Options (Best Practices)
+
+Footer placement (most common)
+
+Add a smaller embedded Google Map (≈400×250 px) near the contact info.
+
+Keeps the homepage clean while ensuring every page shows your location.
+
+Homepage contact section (great middle-ground)
+
+Add a “Visit Our Office” or “Located in Downtown Lawton” block near the bottom.
+
+Include the map, address, and a “Get Directions” button.
+
+Example:
+
+📍 Rochelle & Associates
+511 SW C Ave, Lawton OK 73501
+[Get Directions]
+
+
+This fits perfectly before the footer.
+
+Avoid top-of-page map embeds.
+
+It’s distracting and slows the initial page load. The map should support conversions, not replace your hero section.
+
+⚙️ Technical SEO Tips
+
+Use your Google Business Profile embed code, not a generic map.
+That ensures it’s linked to your verified GBP listing.
+(Click “Share” → “Embed a Map” on your GBP in Google Maps.)
+
+Add schema markup on the same page:
+
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Rochelle & Associates",
+  "image": "https://rochelle-associates.com/logo.png",
+  "telephone": "+1-580-248-1822",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "511 SW C Ave",
+    "addressLocality": "Lawton",
+    "addressRegion": "OK",
+    "postalCode": "73501",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.604,
+    "longitude": -98.395
+  },
+  "url": "https://rochelle-associates.com"
+}
+
+
+Add a caption or headline above it:
+
+“Proudly serving Lawton and Comanche County — visit our office downtown.”
+
+🧩 Optional Enhancements
+
+Use a custom map style (grayscale, warm tones) to match your site’s palette.
+
+If you want to keep speed top-tier, lazy-load the map (load only when users scroll near it).
+
+Include a Street View thumbnail or office photo next to the map to make it more personal.
+
+💡 Recommendation Summary
+Placement	Benefit	Best For
+Footer map	SEO + universal visibility	Every page
+Homepage “Visit Us” section	Warm hometown trust	Homepage conversion
+Both	Best of both worlds	SEO + user trust
+
+👉 Final Call:
+Yes — add a small map block near the bottom of your homepage, tied to your Google Business Profile, with a “Get Directions” button and your full Lawton address.
+It’s one of the easiest, safest, and most impactful changes you can make for both SEO and a hometown feel.
