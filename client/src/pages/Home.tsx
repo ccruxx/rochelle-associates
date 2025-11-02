@@ -9,6 +9,7 @@ import {
   Phone,
   ChevronRight,
   Star,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -74,10 +75,58 @@ export default function Home() {
     }
     canonical.setAttribute('href', 'https://rochelle-associates.com/');
 
+    const schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.id = 'legal-service-schema';
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Rochelle & Associates",
+      "telephone": "+1-580-248-1822",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "511 SW C Ave",
+        "addressLocality": "Lawton",
+        "addressRegion": "OK",
+        "postalCode": "73501",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.604,
+        "longitude": -98.395
+      },
+      "url": "https://rochelle-associates.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Lawton",
+          "containedIn": {
+            "@type": "AdministrativeArea",
+            "name": "Comanche County"
+          }
+        }
+      ]
+    });
+    document.head.appendChild(schema);
+
     return () => {
       const canonicalToRemove = document.querySelector('link[rel="canonical"]');
       if (canonicalToRemove && canonicalToRemove.parentNode) {
         canonicalToRemove.parentNode.removeChild(canonicalToRemove);
+      }
+      const schemaToRemove = document.getElementById('legal-service-schema');
+      if (schemaToRemove && schemaToRemove.parentNode) {
+        schemaToRemove.parentNode.removeChild(schemaToRemove);
       }
     };
   }, []);
@@ -578,6 +627,93 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visit Our Office Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+                Located in Downtown Lawton
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Proudly serving Lawton and Comanche County — visit our office downtown
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <Card className="border-0 bg-muted/30">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <MapPin className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-serif font-bold text-primary mb-2">
+                          Rochelle & Associates
+                        </h3>
+                        <p className="text-lg mb-1" data-testid="text-home-office-address">
+                          511 SW C Ave
+                        </p>
+                        <p className="text-lg mb-4">
+                          Lawton, OK 73501
+                        </p>
+                        <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                          <p><strong>Office Hours:</strong> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                          <p><strong>Emergency Line:</strong> Available 24/7</p>
+                          <p><strong>Phone:</strong> (580) 248-1822</p>
+                        </div>
+                        <Button 
+                          asChild 
+                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                        >
+                          <a 
+                            href="https://www.google.com/maps/dir/?api=1&destination=511+SW+C+Ave,+Lawton,+OK+73501"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-testid="button-home-get-directions"
+                          >
+                            <MapPin className="mr-2 h-4 w-4" />
+                            Get Directions
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div className="p-4 bg-muted/30 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-1">Free Parking</p>
+                    <p className="font-semibold text-primary">Available On-Site</p>
+                  </div>
+                  <div className="p-4 bg-muted/30 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-1">Accessibility</p>
+                    <p className="font-semibold text-primary">Ground Floor Office</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://maps.google.com/maps?q=511+SW+C+Ave,+Lawton,+OK+73501&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Rochelle & Associates Office Location - Downtown Lawton"
+                    data-testid="map-home-office-location"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

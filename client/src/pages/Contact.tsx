@@ -325,12 +325,36 @@ export default function Contact() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-4">
-                    <div className="text-center text-muted-foreground">
-                      <MapPin className="w-12 h-12 mx-auto mb-2" />
-                      <p className="font-medium">Interactive Map</p>
-                      <p className="text-sm">511 SW C Ave, Lawton, OK 73501</p>
-                    </div>
+                  <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-4">
+                    <iframe
+                      src="https://maps.google.com/maps?q=511+SW+C+Ave,+Lawton,+OK+73501&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Rochelle & Associates Office Location"
+                      data-testid="map-office-location"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <Button 
+                      asChild 
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                      size="lg"
+                    >
+                      <a 
+                        href="https://www.google.com/maps/dir/?api=1&destination=511+SW+C+Ave,+Lawton,+OK+73501"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid="button-get-directions"
+                      >
+                        <MapPin className="mr-2 h-4 w-4" />
+                        Get Directions
+                      </a>
+                    </Button>
                   </div>
                   
                   <div className="space-y-4">

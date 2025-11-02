@@ -23,7 +23,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Firm Info */}
           <div className="space-y-4">
@@ -122,6 +122,34 @@ export function Footer() {
                 Schedule Consultation
               </Link>
             </div>
+          </div>
+
+          {/* Office Location Map */}
+          <div className="space-y-4 md:col-span-2 lg:col-span-1">
+            <h4 className="font-semibold text-lg">Visit Our Office</h4>
+            <div className="w-full h-[250px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://maps.google.com/maps?q=511+SW+C+Ave,+Lawton,+OK+73501&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Rochelle & Associates - 511 SW C Ave, Lawton, OK"
+                data-testid="map-footer-location"
+              ></iframe>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=511+SW+C+Ave,+Lawton,+OK+73501"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              data-testid="link-footer-directions"
+            >
+              <MapPin className="h-4 w-4 mr-1" />
+              Get Directions
+            </a>
           </div>
         </div>
 
