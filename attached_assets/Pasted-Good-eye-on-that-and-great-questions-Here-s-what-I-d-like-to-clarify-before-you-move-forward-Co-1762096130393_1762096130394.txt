@@ -1,0 +1,63 @@
+Good eye on that — and great questions. Here’s what I’d like to clarify before you move forward:
+
+Color Palette & Branding
+
+Let’s keep the crimson/burgundy as an accent color, not the main brand color. It should give that Oklahoma Sooners warmth without taking over the design.
+
+For the main palette, go with warm sandstone neutrals — light cream, tan, and soft warm grays — paired with a deep charcoal or brown for contrast. That’ll give us a grounded, Oklahoma-hometown feel while staying professional.
+
+Photography & Images
+
+Please source high-quality stock photos that fit the Oklahoma/small-town aesthetic — courthouse steps, Fort Sill landscapes, Oklahoma sunsets, handshake moments, etc. If needed later, I can provide authentic local photos, but stock is perfect for now.
+
+For the hero image, use your judgment — something that feels authentic, confident, and approachable, with a clear local touch.
+
+Layout & Features
+
+Apply the redesign across all pages for consistency.
+
+We already have a Tribal Family Law page, so no need to create a new one. It’s live but appears to have been accidentally left out of the sitemap.
+
+Please make sure it’s included in the new sitemap.xml and linked internally from the “Practice Areas” page and the main navigation or footer so it’s fully discoverable by both users and Google.
+
+Implementation Approach
+
+Let’s start with the homepage redesign first to confirm the visual direction. Once approved, you can roll out the look across the rest of the site.
+
+Everything else in your plan sounds great — I’m excited to see this come together with that warm, Oklahoma community feel while keeping all the SEO foundations intact.
+
+🧭 Technical To-Do (for the SEO side)
+
+Verify the page URL:
+
+https://rochelle-associates.com/practice-areas/tribal-family-law
+
+
+Add to sitemap.xml:
+Paste this entry in line with the other service URLs:
+
+<url>
+  <loc>https://rochelle-associates.com/practice-areas/tribal-family-law</loc>
+  <lastmod>2025-10-05</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+
+Re-submit sitemap in Google Search Console
+You don’t need to remove the old one — just resubmit the same sitemap URL, and Google will detect the update automatically.
+
+Check internal links:
+Confirm the Tribal Family Law page is linked from:
+
+The “Practice Areas” overview page
+
+The main navigation or footer
+
+At least one related service page (like Family Law)
+
+Thanks again for catching all these details before moving ahead. Once the homepage is ready, I’ll review it and give feedback before you expand the redesign across the rest of the site.
+
+Appreciate your attention to detail — this direction feels spot-on.
+
+— Darrell
