@@ -1,0 +1,50 @@
+Project: Redesign the website for Rochelle & Associates, a long-standing law firm based in Lawton, Oklahoma.
+
+Goal: Refresh the design to feel more hometown-friendly, personal, and trustworthy, while maintaining a clean, professional aesthetic suitable for a legal practice.
+
+Creative Direction:
+
+The client is a big Oklahoma Sooners fan and wants subtle nods to that Oklahoma pride and community feel — think crimson accents, warm neutral tones, and photography that reflects Lawton life (local landmarks, courthouse, Fort Sill, Oklahoma plains).
+
+The site should feel approachable, not corporate — embody the sense of a neighbor you can trust when facing tough legal issues.
+
+Use authentic imagery over stock photos: consider local courthouse steps, Oklahoma sunsets, handshake moments, or small-town street scenes.
+
+Fonts: clean, readable serif or modern sans-serif pairing. Keep headlines confident but welcoming.
+
+Layout: full-width hero image with a strong headline like “Protecting Lawton Families for Over 36 Years”. Include clear CTAs (“Call Now,” “Get a Free Consultation”).
+
+Maintain professionalism — no sports logos, mascots, or overt fan imagery; the OU inspiration should stay subtle (through color palette, warmth, and tone).
+
+Key Pages:
+
+Home
+
+Practice Areas (Criminal Defense, DUI Defense, Family Law, Tribal Law)
+
+About Us (highlighting decades of service in Lawton, Oklahoma roots)
+
+Contact (map, phone, consultation form)
+
+Tone & Feel:
+
+Professional yet personal
+
+Rooted in Oklahoma community values
+
+Trustworthy, experienced, local advocate
+
+Approachable language — avoid corporate jargon
+
+Design Inspiration Keywords:
+“Oklahoma hometown law firm,” “Lawton community pride,” “Warm crimson and sandstone color palette,” “Professional but personal,” “Heritage and integrity.”
+
+Technical Notes:
+
+Keep SEO structure intact (existing URLs, headings, canonical tags, schema).
+
+Optimize all images for web (small file size, descriptive alt-text).
+
+Ensure mobile-first design and fast load times.
+
+Preserve all current metadata and internal linking from existing SEO setup.
