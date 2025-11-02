@@ -165,8 +165,38 @@ The codebase is prepared for database integration. The `IStorage` interface in s
 
 ### External APIs
 
-Currently, the application does not integrate with external APIs. Future integrations could include:
+**Current Integrations:**
+- **Google Maps Embed** - Embedded maps showing office location at 511 SW C Ave, Lawton, OK 73501
+  - Contact page: Full-size interactive map with Get Directions button
+  - Homepage: "Visit Our Office" section with map and office details
+  - Footer: Small embedded map (250px height) on all pages
+  - Get Directions functionality uses Google Maps Directions API
+  - All maps configured with lazy loading and proper accessibility attributes
+
+**Future Integrations:**
 - Email service (SendGrid, Mailgun) for contact form notifications
-- Google Maps API for office location embedding
 - Calendar API for appointment scheduling
 - Payment processing for retainers
+
+## Recent Changes
+
+### Google Maps Integration (November 2025)
+Added comprehensive Google Maps integration to boost local SEO authority and improve user experience:
+
+**Implementation:**
+1. **Contact Page**: Replaced placeholder map with fully interactive Google Maps embed
+2. **Homepage**: Added "Visit Our Office" section with embedded map, office details, and Get Directions button
+3. **Footer**: Added small map visible on all pages for universal location visibility
+4. **Schema Markup**: Enhanced LegalService JSON-LD with geo-coordinates (latitude: 34.604, longitude: -98.395)
+
+**SEO Benefits:**
+- Reinforces NAP (Name, Address, Phone) consistency across the site
+- Improves visibility for "lawyer near me" and "Lawton criminal defense attorney" searches
+- Helps business appear in Google local 3-pack map results
+- Shows verified office location on every page via footer map
+
+**Technical Details:**
+- Maps use iframe embeds with lazy loading for performance
+- Get Directions buttons use Google Maps Directions API (`https://www.google.com/maps/dir/?api=1&destination=...`)
+- All maps include proper accessibility attributes (titles, referrer policy)
+- Responsive design maintains quality across desktop and mobile devices
