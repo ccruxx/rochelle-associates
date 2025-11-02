@@ -14,15 +14,72 @@ import { useEffect } from "react";
 
 export default function CriminalDefense() {
   useEffect(() => {
+    const originalTitle = document.title;
     document.title =
       "Criminal Defense Attorney Lawton OK | Rochelle & Associates";
+    
     const metaDescription = document.querySelector('meta[name="description"]');
+    const originalDescription = metaDescription ? metaDescription.getAttribute('content') : null;
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
         "Experienced criminal defense attorney in Lawton, OK with 36+ years defending clients in Comanche County. Call (580) 248-1822 for a free consultation.",
       );
     }
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://rochelle-associates.com/criminal-defense');
+
+    const schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Criminal Defense Attorney",
+      "provider": {
+        "@type": "Attorney",
+        "name": "Rochelle & Associates",
+        "telephone": "+1-580-248-1822",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "511 SW C Ave",
+          "addressLocality": "Lawton",
+          "addressRegion": "OK",
+          "postalCode": "73501",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lawton",
+        "containedIn": {
+          "@type": "AdministrativeArea",
+          "name": "Comanche County"
+        }
+      },
+      "description": "Experienced criminal defense attorney in Lawton, OK with 36+ years defending clients in Comanche County against felonies, misdemeanors, and federal crimes."
+    });
+    document.head.appendChild(schema);
+
+    return () => {
+      document.title = originalTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription);
+      }
+      if (schema.parentNode) {
+        schema.parentNode.removeChild(schema);
+      }
+      const canonicalToRemove = document.querySelector('link[rel="canonical"]');
+      if (canonicalToRemove && canonicalToRemove.parentNode) {
+        canonicalToRemove.parentNode.removeChild(canonicalToRemove);
+      }
+    };
   }, []);
 
   const defenseCases = [
@@ -102,6 +159,9 @@ export default function CriminalDefense() {
               </Button>
             </div>
           </div>
+          <section className="py-8 text-center text-sm text-muted-foreground">
+            Each case is unique; outcomes depend on individual circumstances.
+          </section>
         </div>
       </section>
 

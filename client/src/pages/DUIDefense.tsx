@@ -6,11 +6,68 @@ import { useEffect } from "react";
 
 export default function DUIDefense() {
   useEffect(() => {
+    const originalTitle = document.title;
     document.title = "DUI Lawyer Lawton OK | DUI Defense Attorney | Rochelle & Associates";
+    
     const metaDescription = document.querySelector('meta[name="description"]');
+    const originalDescription = metaDescription ? metaDescription.getAttribute('content') : null;
     if (metaDescription) {
       metaDescription.setAttribute("content", "Experienced DUI lawyer in Lawton, OK defending clients in Comanche County. 36+ years experience with DUI/DWI cases. Call (580) 248-1822 for free consultation.");
     }
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://rochelle-associates.com/dui-defense');
+
+    const schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "DUI Defense Attorney",
+      "provider": {
+        "@type": "Attorney",
+        "name": "Rochelle & Associates",
+        "telephone": "+1-580-248-1822",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "511 SW C Ave",
+          "addressLocality": "Lawton",
+          "addressRegion": "OK",
+          "postalCode": "73501",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lawton",
+        "containedIn": {
+          "@type": "AdministrativeArea",
+          "name": "Comanche County"
+        }
+      },
+      "description": "Experienced DUI lawyer in Lawton, OK defending clients against DUI/DWI charges in Comanche County. 36+ years of experience challenging breathalyzer tests and protecting your license."
+    });
+    document.head.appendChild(schema);
+
+    return () => {
+      document.title = originalTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription);
+      }
+      if (schema.parentNode) {
+        schema.parentNode.removeChild(schema);
+      }
+      const canonicalToRemove = document.querySelector('link[rel="canonical"]');
+      if (canonicalToRemove && canonicalToRemove.parentNode) {
+        canonicalToRemove.parentNode.removeChild(canonicalToRemove);
+      }
+    };
   }, []);
 
   const duiServices = [

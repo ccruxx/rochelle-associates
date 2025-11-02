@@ -6,11 +6,68 @@ import { useEffect } from "react";
 
 export default function FamilyLaw() {
   useEffect(() => {
+    const originalTitle = document.title;
     document.title = "Family Law Attorney Lawton OK | Divorce & Custody Lawyer | Rochelle & Associates";
+    
     const metaDescription = document.querySelector('meta[name="description"]');
+    const originalDescription = metaDescription ? metaDescription.getAttribute('content') : null;
     if (metaDescription) {
       metaDescription.setAttribute("content", "Experienced family law attorney in Lawton, OK handling divorce, child custody, and domestic relations in Comanche County. 36+ years experience. Call (580) 248-1822.");
     }
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://rochelle-associates.com/family-law');
+
+    const schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Family Law Attorney",
+      "provider": {
+        "@type": "Attorney",
+        "name": "Rochelle & Associates",
+        "telephone": "+1-580-248-1822",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "511 SW C Ave",
+          "addressLocality": "Lawton",
+          "addressRegion": "OK",
+          "postalCode": "73501",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lawton",
+        "containedIn": {
+          "@type": "AdministrativeArea",
+          "name": "Comanche County"
+        }
+      },
+      "description": "Experienced family law attorney in Lawton, OK handling divorce, child custody, child support, and domestic relations in Comanche County. 36+ years of compassionate representation."
+    });
+    document.head.appendChild(schema);
+
+    return () => {
+      document.title = originalTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription);
+      }
+      if (schema.parentNode) {
+        schema.parentNode.removeChild(schema);
+      }
+      const canonicalToRemove = document.querySelector('link[rel="canonical"]');
+      if (canonicalToRemove && canonicalToRemove.parentNode) {
+        canonicalToRemove.parentNode.removeChild(canonicalToRemove);
+      }
+    };
   }, []);
 
   const familyLawServices = [
