@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { FaFacebook } from "react-icons/fa";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,6 +36,19 @@ export function Footer() {
               <div className="bg-secondary px-3 py-1 rounded text-secondary-foreground font-medium">
                 Free Consultation
               </div>
+            </div>
+            <div className="pt-2">
+              <p className="text-sm font-medium mb-2">Follow Us</p>
+              <a 
+                href="https://www.facebook.com/profile.php?id=100068930332608"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors"
+                aria-label="Visit our Facebook page"
+                data-testid="link-footer-facebook"
+              >
+                <FaFacebook className="h-5 w-5" />
+              </a>
             </div>
           </div>
 

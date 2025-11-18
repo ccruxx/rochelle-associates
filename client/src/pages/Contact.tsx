@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -101,6 +102,13 @@ export default function Contact() {
       primary: "Mon-Thu: 9:00 AM - 5:00 PM",
       secondary: "Fri: 9:00 AM - 12:00 PM | Sat-Sun: Closed",
       href: null
+    },
+    {
+      icon: FaFacebook,
+      title: "Connect With Us",
+      primary: "Follow on Facebook",
+      secondary: "Stay updated with our latest news",
+      href: "https://www.facebook.com/profile.php?id=100068930332608"
     }
   ];
 
