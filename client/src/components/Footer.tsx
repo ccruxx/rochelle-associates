@@ -70,8 +70,9 @@ export function Footer() {
                 <div>
                   <p className="font-medium">Office Hours</p>
                   <p className="text-sm text-primary-foreground/80">
-                    Mon-Fri: 8:00 AM - 5:00 PM<br />
-                    Weekend: By appointment
+                    Mon-Thu: 9:00 AM - 5:00 PM<br />
+                    Fri: 9:00 AM - 12:00 PM<br />
+                    Sat-Sun: Closed
                   </p>
                 </div>
               </div>

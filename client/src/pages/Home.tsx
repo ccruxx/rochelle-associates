@@ -101,9 +101,15 @@ export default function Home() {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:00",
           "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "09:00",
+          "closes": "12:00"
         }
       ],
       "areaServed": [
@@ -663,7 +669,7 @@ export default function Home() {
                           Lawton, OK 73501
                         </p>
                         <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                          <p><strong>Office Hours:</strong> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                          <p><strong>Office Hours:</strong> Mon-Thu: 9:00 AM - 5:00 PM, Fri: 9:00 AM - 12:00 PM, Sat-Sun: Closed</p>
                           <p><strong>Emergency Line:</strong> Available 24/7</p>
                           <p><strong>Phone:</strong> (580) 248-1822</p>
                         </div>

@@ -98,8 +98,8 @@ export default function Contact() {
     {
       icon: Clock,
       title: "Office Hours",
-      primary: "Mon-Fri: 8:00 AM - 5:00 PM",
-      secondary: "Weekend appointments available",
+      primary: "Mon-Thu: 9:00 AM - 5:00 PM",
+      secondary: "Fri: 9:00 AM - 12:00 PM | Sat-Sun: Closed",
       href: null
     }
   ];
