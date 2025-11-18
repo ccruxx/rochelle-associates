@@ -180,6 +180,26 @@ The codebase is prepared for database integration. The `IStorage` interface in s
 
 ## Recent Changes
 
+### Office Hours Update to Match Google Business Profile (November 2025)
+Updated all office hours across the website to match the Google Business Profile exactly, ensuring NAP consistency for optimal local SEO:
+
+**Updated Schedule:**
+- **Monday-Thursday**: 9:00 AM - 5:00 PM
+- **Friday**: 9:00 AM - 12:00 PM
+- **Saturday-Sunday**: Closed
+
+**Locations Updated:**
+1. **Home Page Schema Markup**: LegalService JSON-LD with separate openingHoursSpecification entries for Monday-Thursday (09:00-17:00) and Friday (09:00-12:00)
+2. **Home Page "Visit Our Office" Section**: Complete schedule display including weekend closure
+3. **Contact Page**: Office hours info card with primary and secondary lines
+4. **Footer**: Three-line format visible on all pages
+
+**SEO Benefits:**
+- Perfect NAP consistency between website and Google Business Profile
+- Helps Google validate business information for local search rankings
+- Reduces confusion for potential clients checking availability
+- Supports local 3-pack ranking algorithm requirements
+
 ### Google Maps Integration (November 2025)
 Added comprehensive Google Maps integration to boost local SEO authority and improve user experience:
 
