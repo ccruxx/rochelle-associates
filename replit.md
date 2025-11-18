@@ -180,6 +180,24 @@ The codebase is prepared for database integration. The `IStorage` interface in s
 
 ## Recent Changes
 
+### Facebook Social Media Integration (November 2025)
+Added Facebook social media links throughout the website to improve engagement and social proof:
+
+**Implementation:**
+1. **Footer**: Added "Follow Us" section with Facebook icon button visible on all pages
+2. **Contact Page**: Added "Connect With Us" card as 5th contact info card with Facebook link
+
+**Facebook Page:**
+- URL: https://www.facebook.com/profile.php?id=100068930332608
+- Opens in new tab with proper security attributes (rel="noopener noreferrer")
+- Accessibility-compliant with aria-labels
+
+**Benefits:**
+- Increases social media engagement and follower growth
+- Provides social proof and credibility to potential clients
+- Offers another channel for clients to connect and stay updated
+- Consistent presence across all pages via footer
+
 ### Office Hours Update to Match Google Business Profile (November 2025)
 Updated all office hours across the website to match the Google Business Profile exactly, ensuring NAP consistency for optimal local SEO:
 
