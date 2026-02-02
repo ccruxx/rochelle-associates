@@ -1,0 +1,47 @@
+You are working on my existing Rochelle & Associates website codebase. I do NOT want anything broken or major refactors.
+
+Goal: add local SEO “geo + entity” signals safely:
+1) Add JSON-LD schema for an Attorney / LegalService (LocalBusiness) entity site-wide.
+2) Add an embedded Google Map on the Contact page (and optionally in the footer), without changing layout dramatically.
+3) Ensure NAP (name, address, phone) appears consistently on the Contact page and in schema.
+4) Add SameAs links in schema to the Google Business Profile and main social profiles if they exist in the project config.
+5) Do NOT change routing, styling system, or component structure unless necessary.
+
+Hard requirements:
+- Create a git commit BEFORE changes (or a backup patch file) so we can revert.
+- Keep changes minimal: ideally add 1 small component + 1 schema constant + 1 include in the app layout.
+- Validate build passes (npm run build) and there are no runtime errors.
+- If you are unsure of the business details (GBP URL, exact address formatting, latitude/longitude), STOP and look for them in the project files first (contact page content, footer, constants, config, existing SEO metadata). Only if not found, add TODO placeholders clearly labeled.
+
+Implementation details:
+A) Schema
+- Create a JSON-LD object with @context "https://schema.org"
+- Prefer @type "LegalService" (or "Attorney") with:
+  name: "Rochelle & Associates"
+  address: (PostalAddress: streetAddress, addressLocality, addressRegion, postalCode, addressCountry)
+  telephone: (format as +1-xxx-xxx-xxxx if possible)
+  geo: (GeoCoordinates: latitude, longitude) if you can find/confirm it
+  url: the site’s canonical domain
+  image/logo if already in project assets
+  areaServed: "Lawton, OK" (and optionally nearby areas if already stated on site)
+  sameAs: include GBP URL + socials if found
+- Inject schema in the <head> site-wide using a safe method (existing SEO component, Helmet, or head manager already used in project). If none exists, add a lightweight solution that does NOT break SSR assumptions (if any).
+
+B) Google Map Embed
+- On Contact page, embed a Google Maps iframe for the office address.
+- Use lazy loading where possible and set a reasonable width/height responsive container.
+- Keep styling consistent with existing components.
+- Do not require any API keys.
+
+C) NAP Consistency
+- Ensure Contact page shows:
+  Rochelle & Associates
+  511 SW C Ave, Lawton, OK 73501
+  (580) 248-1822
+- If these already exist, don’t duplicate—just confirm they match schema.
+
+D) Verify
+- Run build/tests and confirm no broken pages.
+- Output a short summary listing the exact files changed and what was added.
+
+Proceed now with these steps, and keep changes as small and safe as possible.
