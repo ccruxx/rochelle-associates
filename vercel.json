@@ -1,0 +1,17 @@
+{
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
+  "redirects": [
+    { "source": "/about-us.html", "destination": "/about", "permanent": true },
+    { "source": "/contact-us.html", "destination": "/contact", "permanent": true },
+    { "source": "/criminal-defense.html", "destination": "/criminal-defense", "permanent": true },
+    { "source": "/referrals.html", "destination": "/", "permanent": true },
+    { "source": "/reviews.html", "destination": "/", "permanent": true },
+    { "source": "/tribal-family-law.html", "destination": "/family-law", "permanent": true },
+    { "source": "/wills-trusts-and-probate.html", "destination": "/family-law", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
