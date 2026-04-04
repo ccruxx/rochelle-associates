@@ -302,8 +302,9 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               className="text-lg md:text-xl mb-3 text-primary-foreground/80 leading-relaxed max-w-3xl mx-auto"
             >
-              The only attorney in Southwest Oklahoma appointed by the Oklahoma
-              Supreme Court to the Professional Responsibility Commission.
+              Serving on the Professional Responsibility Commission — the Oklahoma
+              Bar's statewide ethics enforcement body, established by and operating
+              under the authority of the Oklahoma Supreme Court.
             </motion.p>
 
             <motion.p
@@ -494,21 +495,22 @@ export default function Home() {
                 The Attorney the Oklahoma Supreme Court Trusts
               </h2>
               <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-3xl mx-auto">
-                Robin Rochelle is the only attorney in Southwest Oklahoma appointed
-                by the Oklahoma Supreme Court to the{" "}
+                Robin Rochelle serves on the{" "}
                 <strong className="text-white">Professional Responsibility Commission</strong> —
-                the body responsible for setting and enforcing the ethical standards
-                for every lawyer in the state.
+                the Oklahoma Bar Association's statewide ethics body, established by
+                and operating under the authority of the Oklahoma Supreme Court, that
+                investigates attorney misconduct and recommends discipline across
+                the entire state.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-10">
                 {[
                   {
-                    title: "Hand-Selected by the State's Highest Court",
-                    body: "The Oklahoma Supreme Court appoints only trusted, exemplary attorneys to this Commission. The selection is not applied for — it is conferred.",
+                    title: "Appointed by the Oklahoma Bar Association",
+                    body: "Lawyer members are appointed by the OBA President with Board of Governors approval — a recognition of exemplary character and ethical standing within the profession.",
                   },
                   {
                     title: "Holds Every Lawyer in Oklahoma Accountable",
-                    body: "The Commission oversees professional conduct for all Oklahoma attorneys. Robin Rochelle helps set the standard — then meets it in his own practice every day.",
+                    body: "The Commission investigates attorney misconduct and recommends discipline to the Oklahoma Supreme Court. Robin Rochelle enforces the standard statewide — and holds himself to it in every case.",
                   },
                   {
                     title: "No OKC or Tulsa Firm Can Make This Claim",
@@ -850,7 +852,7 @@ export default function Home() {
               <span className="text-secondary">Call Lawton's Most Credentialed Defense Attorney.</span>
             </h2>
             <p className="text-lg mb-3 max-w-2xl mx-auto text-white/70 leading-relaxed">
-              36 years. 1,000+ cases. Appointed by the Oklahoma Supreme Court.
+              36 years. 1,000+ cases. Member of the Oklahoma Bar's Professional Responsibility Commission.
               The attorney who knows your courthouse, your judges, and your community.
             </p>
             <p className="text-sm text-white/50 mb-10">

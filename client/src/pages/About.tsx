@@ -60,7 +60,7 @@ export default function About() {
 
   const achievements = [
     "36+ years practicing law in Lawton and Comanche County",
-    "Appointed to Professional Responsibility Commission by Oklahoma Supreme Court",
+    "Appointed to the Oklahoma Bar Association's Professional Responsibility Commission",
     "Licensed in all Oklahoma state courts",
     "1,000+ criminal defense and family law cases handled",
     "Extensive family law and domestic relations experience",
@@ -163,7 +163,7 @@ export default function About() {
                 <Card className="border-0 bg-secondary/10 border-secondary/20 border">
                   <CardContent className="p-4">
                     <div className="font-semibold text-secondary">Special Appointment</div>
-                    <div className="text-sm text-muted-foreground">Professional Responsibility Commission — Oklahoma Supreme Court</div>
+                    <div className="text-sm text-muted-foreground">Professional Responsibility Commission — Oklahoma Bar Association</div>
                   </CardContent>
                 </Card>
               </div>
@@ -229,10 +229,12 @@ export default function About() {
                 The Attorney the Oklahoma Supreme Court Trusts
               </h2>
               <p className="text-lg text-white/70 leading-relaxed">
-                Robin Rochelle is appointed by the Oklahoma Supreme Court to serve on the{" "}
+                Robin Rochelle serves on the{" "}
                 <strong className="text-white">Professional Responsibility Commission</strong> —
-                the body that sets and enforces the ethical standards for every single
-                attorney practicing law in the state of Oklahoma.
+                the Oklahoma Bar Association's statewide ethics enforcement body, established
+                by and operating under the authority of the Oklahoma Supreme Court. The
+                Commission investigates allegations of professional misconduct by attorneys
+                and recommends discipline to the Supreme Court.
               </p>
             </div>
 
@@ -240,24 +242,25 @@ export default function About() {
               <div className="space-y-4">
                 <h3 className="text-xl font-serif font-semibold text-secondary">What Does This Mean?</h3>
                 <p className="text-white/70 leading-relaxed">
-                  The Commission is not a membership you apply for. The Oklahoma Supreme Court
-                  identifies and selects attorneys of exemplary character, judgment, and ethical
-                  standing. The appointment is a recognition — by the state's highest court —
-                  that this attorney can be trusted to hold the entire legal profession accountable.
+                  Lawyer members are appointed by the OBA President with Board of Governors
+                  approval — a recognition of exemplary standing within the profession. The
+                  Commission operates under the Oklahoma Supreme Court's Rules Governing
+                  Disciplinary Proceedings, and its formal complaint recommendations go
+                  directly to the Supreme Court.
                 </p>
                 <p className="text-white/70 leading-relaxed">
-                  When you hire Robin Rochelle, you are hiring the attorney that the Oklahoma
-                  Supreme Court selected to police the legal profession. That is not a
-                  marketing claim. It is the public record.
+                  When you hire Robin Rochelle, you are hiring an attorney trusted by the
+                  Oklahoma Bar to help police the legal profession across the entire state.
+                  That is not a marketing claim. It is the public record.
                 </p>
               </div>
               <div className="space-y-4">
                 <h3 className="text-xl font-serif font-semibold text-secondary">Why It Matters to You</h3>
                 <ul className="space-y-3">
                   {[
-                    "No OKC or Tulsa competitor holds this appointment",
-                    "Externally verified by a higher authority than the attorney themselves",
-                    "Signals the deepest possible trust from the Oklahoma legal system",
+                    "No OKC or Tulsa competitor in our analysis holds this appointment",
+                    "Appointed by the OBA President — a peer recognition of ethical standing",
+                    "The Commission operates under Oklahoma Supreme Court authority",
                     "Your case is handled with the same ethics standard he enforces statewide",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
