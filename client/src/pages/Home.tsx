@@ -374,8 +374,9 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover object-center"
           aria-hidden="true"
         />
-        {/* Dark overlay — navy gradient ensures WCAG AA contrast on all text */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/88 via-primary/82 to-[hsl(212,48%,12%)]/92" />
+        {/* Dark overlay — two-layer approach: base black + directional gradient for depth */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
         {/* Two spotlights crossing from left and right — illuminates the headline */}
         <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-1/4"
@@ -393,7 +394,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
+                className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold mb-6 leading-tight drop-shadow-lg"
                 data-testid="text-hero-headline"
               >
                 When Everything Is on the Line,{" "}
