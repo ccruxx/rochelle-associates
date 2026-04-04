@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Shield,
   Scale,
@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Star,
   MapPin,
+  CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -58,6 +59,58 @@ const testimonials: Testimonial[] = [
     caseType: "DUI Defense",
   },
 ];
+
+// Animated counter hook
+function useCountUp(target: number, duration: number = 1.6) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const step = target / (duration * 60);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 1000 / 60);
+    return () => clearInterval(timer);
+  }, [inView, target, duration]);
+
+  return { count, ref };
+}
+
+// Fade-up animation variant
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+function AnimatedSection({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={fadeUp}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   useEffect(() => {
@@ -141,7 +194,7 @@ export default function Home() {
     {
       title: "Criminal Defense",
       description:
-        "Aggressive defense for felonies, misdemeanors, and federal crimes. Protecting your rights and future.",
+        "Aggressive defense for felonies, misdemeanors, and federal crimes. Protecting your rights and future in Comanche County.",
       icon: Shield,
       href: "/criminal-defense",
       features: [
@@ -154,7 +207,7 @@ export default function Home() {
     {
       title: "DUI Defense",
       description:
-        "Expert defense against DUI charges. Challenging evidence and protecting your driving privileges.",
+        "Expert defense against DUI charges. Challenging evidence and protecting your driving privileges. 15-day deadline to save your license.",
       icon: Scale,
       href: "/dui-defense",
       features: [
@@ -167,7 +220,7 @@ export default function Home() {
     {
       title: "Family Law",
       description:
-        "Compassionate representation for divorce, custody, and family matters during difficult times.",
+        "Compassionate representation for divorce, custody, and family matters during the most difficult transitions.",
       icon: Users,
       href: "/family-law",
       features: [
@@ -180,7 +233,7 @@ export default function Home() {
     {
       title: "Domestic Violence",
       description:
-        "Sensitive defense for domestic violence allegations. Protecting relationships and reputations.",
+        "Sensitive defense for domestic violence allegations. Protecting relationships, rights, and reputations.",
       icon: Award,
       href: "/practice-areas/domestic-violence",
       features: [
@@ -193,7 +246,7 @@ export default function Home() {
     {
       title: "Tribal Family Law",
       description:
-        "Representing your family with tribal attorney expertise in specialized tribal courts.",
+        "Southwest Oklahoma's only attorney with tribal court expertise — a genuine competitive advantage for tribal community members.",
       icon: Users,
       href: "/practice-areas/tribal-family-law",
       features: [
@@ -218,360 +271,333 @@ export default function Home() {
     },
   ];
 
+  // CountUp refs
+  const { count: yearsCount, ref: yearsRef } = useCountUp(36);
+  const { count: casesCount, ref: casesRef } = useCountUp(1000);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative container mx-auto px-4 py-20 lg:py-32">
+      {/* ── Hero Section ── */}
+      <section className="relative bg-primary text-primary-foreground overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(212,48%,12%)] opacity-100" />
+        <div className="relative container mx-auto px-4 py-24 lg:py-36">
           <div className="max-w-4xl mx-auto text-center">
-            <h1
-              className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight"
-              data-testid="text-hero-headline"
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Expert Legal Defense When Your Future is at Stake
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 leading-relaxed">
-              36 years of proven experience defending clients across Lawton,
-              Oklahoma. Criminal defense, family law, and DUI representation you
-              can trust.
-            </p>
+              <h1
+                className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
+                data-testid="text-hero-headline"
+              >
+                When Everything Is on the Line,{" "}
+                <span className="text-secondary">Lawton Trusts Rochelle.</span>
+              </h1>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="text-lg md:text-xl mb-3 text-primary-foreground/80 leading-relaxed max-w-3xl mx-auto"
+            >
+              The only attorney in Southwest Oklahoma appointed by the Oklahoma
+              Supreme Court to the Professional Responsibility Commission.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+              className="text-base text-primary-foreground/60 mb-10 tracking-wide"
+            >
+              36 years. 1,000+ cases. Available 24/7. One call.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            >
               <Button
                 asChild
                 size="lg"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8 py-4"
+                className="bg-secondary text-secondary-foreground hover:bg-accent text-lg px-8 py-4 transition-all hover:scale-[1.02] shadow-lg"
               >
                 <Link href="/contact" data-testid="button-hero-consultation">
                   <Phone className="mr-2 h-5 w-5" />
-                  Free Consultation
+                  Free Strategy Session
                 </Link>
               </Button>
 
-              <div className="flex items-center text-lg">
+              <a
+                href="tel:5802481822"
+                className="flex items-center text-lg font-semibold hover:text-secondary transition-colors"
+              >
                 <Phone className="mr-2 h-5 w-5" />
-                <span className="font-semibold" data-testid="text-hero-phone">
-                  (580) 248-1822
-                </span>
-              </div>
-            </div>
+                <span data-testid="text-hero-phone">(580) 248-1822</span>
+              </a>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-secondary">36+</div>
-                <div className="text-sm text-primary-foreground/80">
-                  Years Experience
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 border-t border-primary-foreground/20 pt-10"
+            >
+              <div className="text-center" ref={yearsRef}>
+                <div className="text-5xl font-serif font-bold text-secondary">
+                  {yearsCount}+
+                </div>
+                <div className="text-sm text-primary-foreground/70 mt-1 tracking-wide uppercase">
+                  Years in Lawton Courts
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-secondary">1000+</div>
-                <div className="text-sm text-primary-foreground/80">
+              <div className="text-center" ref={casesRef}>
+                <div className="text-5xl font-serif font-bold text-secondary">
+                  {casesCount}+
+                </div>
+                <div className="text-sm text-primary-foreground/70 mt-1 tracking-wide uppercase">
                   Cases Handled
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-secondary">95%</div>
-                <div className="text-sm text-primary-foreground/80">
-                  Client Satisfaction
+                <div className="text-5xl font-serif font-bold text-secondary">
+                  SW OK
+                </div>
+                <div className="text-sm text-primary-foreground/70 mt-1 tracking-wide uppercase">
+                  Comanche County Courts
                 </div>
               </div>
-            </div>
-            <p className="text-xs text-primary-foreground/70 mt-2 italic">
-              *Each case is unique. Past results do not guarantee future
-              outcomes.
+            </motion.div>
+            <p className="text-xs text-primary-foreground/40 mt-3 italic">
+              Each case is unique. Past results do not guarantee future outcomes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Featured Services Section */}
-      <section className="py-16 bg-background border-b">
+      {/* ── Urgency Strip ── */}
+      <div className="bg-secondary text-secondary-foreground py-4">
+        <div className="container mx-auto px-4 text-center">
+          <p className="font-semibold text-lg">
+            Arrested or facing charges?{" "}
+            <a
+              href="tel:5802481822"
+              className="underline underline-offset-2 hover:no-underline font-bold"
+            >
+              Call (580) 248-1822 now.
+            </a>{" "}
+            You have rights. Attorney Rochelle is available 24/7.
+          </p>
+        </div>
+      </div>
+
+      {/* ── Primary Practice Areas — 3 Cards ── */}
+      <section className="py-20 bg-background border-b">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-                Experienced Legal Representation in Lawton, Oklahoma
+            <AnimatedSection>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+                  Experienced Legal Representation in Lawton, Oklahoma
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Rochelle & Associates provides comprehensive legal services for{" "}
+                  <Link href="/criminal-defense" className="text-primary font-semibold hover:underline" data-testid="link-home-criminal">
+                    Criminal Defense
+                  </Link>
+                  ,{" "}
+                  <Link href="/dui-defense" className="text-primary font-semibold hover:underline" data-testid="link-home-dui">
+                    DUI Defense
+                  </Link>
+                  , and{" "}
+                  <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-home-family">
+                    Family Law
+                  </Link>{" "}
+                  throughout Comanche County. 36 years of local courtroom experience fighting for your rights, your freedom, and your family.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={stagger}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {[
+                {
+                  Icon: Shield,
+                  href: "/criminal-defense",
+                  title: "Criminal Defense Attorney",
+                  desc: "Aggressive defense for felonies, misdemeanors, and federal crimes in Lawton and Comanche County. You get Attorney Rochelle — not a paralegal, not a junior associate.",
+                  cta: "View Criminal Defense Services",
+                  testId: "link-criminal-card",
+                },
+                {
+                  Icon: Scale,
+                  href: "/dui-defense",
+                  title: "DUI Defense Lawyer",
+                  desc: "Time-sensitive defense for DUI/DWI charges. You have only 15 days to save your license. Call now — available 24/7 for Lawton arrests.",
+                  cta: "View DUI Defense Services",
+                  testId: "link-dui-card",
+                },
+                {
+                  Icon: Users,
+                  href: "/family-law",
+                  title: "Family Law Attorney",
+                  desc: "Compassionate representation for divorce, child custody, and domestic relations in Comanche County. Protecting your family during life's hardest transitions.",
+                  cta: "View Family Law Services",
+                  testId: "link-family-card",
+                },
+              ].map(({ Icon, href, title, desc, cta, testId }) => (
+                <motion.div key={href} variants={fadeUp}>
+                  <Card className="border-2 border-primary/20 hover:border-secondary hover:shadow-lg transition-all duration-300 h-full bg-card">
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <Icon className="w-12 h-12 text-secondary mb-4" />
+                      <h3 className="text-xl font-serif font-bold text-primary mb-3">
+                        <Link href={href} className="hover:text-secondary transition-colors" data-testid={testId}>
+                          {title}
+                        </Link>
+                      </h3>
+                      <p className="text-muted-foreground mb-6 leading-relaxed flex-1">{desc}</p>
+                      <Button asChild variant="outline" className="w-full hover:bg-primary hover:text-primary-foreground transition-colors">
+                        <Link href={href} data-testid={`button-${testId}`}>
+                          {cta}
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Rochelle — Commission Story ── */}
+      <section className="py-20 bg-[hsl(212,48%,12%)] text-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 text-secondary px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-8">
+                <Award className="h-4 w-4" />
+                A Credential No Competitor Can Claim
+              </div>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+                The Attorney the Oklahoma Supreme Court Trusts
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Rochelle & Associates provides comprehensive legal services for{" "}
-                <Link
-                  href="/criminal-defense"
-                  className="text-primary font-semibold hover:underline"
-                  data-testid="link-home-criminal"
-                >
-                  Criminal Defense
-                </Link>
-                ,{" "}
-                <Link
-                  href="/dui-defense"
-                  className="text-primary font-semibold hover:underline"
-                  data-testid="link-home-dui"
-                >
-                  DUI Defense
-                </Link>
-                , and{" "}
-                <Link
-                  href="/family-law"
-                  className="text-primary font-semibold hover:underline"
-                  data-testid="link-home-family"
-                >
-                  Family Law
-                </Link>{" "}
-                matters throughout Comanche County. With over 36 years of local
-                courtroom experience, we fight to protect your rights, your
-                freedom, and your family's future.
+              <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Robin Rochelle is the only attorney in Southwest Oklahoma appointed
+                by the Oklahoma Supreme Court to the{" "}
+                <strong className="text-white">Professional Responsibility Commission</strong> —
+                the body responsible for setting and enforcing the ethical standards
+                for every lawyer in the state.
               </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-10">
+                {[
+                  {
+                    title: "Hand-Selected by the State's Highest Court",
+                    body: "The Oklahoma Supreme Court appoints only trusted, exemplary attorneys to this Commission. The selection is not applied for — it is conferred.",
+                  },
+                  {
+                    title: "Holds Every Lawyer in Oklahoma Accountable",
+                    body: "The Commission oversees professional conduct for all Oklahoma attorneys. Robin Rochelle helps set the standard — then meets it in his own practice every day.",
+                  },
+                  {
+                    title: "No OKC or Tulsa Firm Can Make This Claim",
+                    body: "Cannon, Lai & Turner, Boeheim Freeman — none hold this appointment. It is a genuine, externally verified credential that signals the deepest trust.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="bg-white/5 border border-white/10 rounded-lg p-5">
+                    <h3 className="font-semibold text-secondary mb-2 leading-snug">{item.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+              <Button
+                asChild
+                size="lg"
+                className="bg-secondary text-secondary-foreground hover:bg-accent transition-all hover:scale-[1.02]"
+              >
+                <Link href="/about">
+                  Learn More About Attorney Rochelle
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
-                <CardContent className="p-6">
-                  <Shield className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
-                    <Link
-                      href="/criminal-defense"
-                      className="hover:underline"
-                      data-testid="link-criminal-card"
-                    >
-                      Criminal Defense Attorney
-                    </Link>
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Aggressive defense for felonies, misdemeanors, and federal
-                    crimes in Lawton and Comanche County. Protecting your
-                    constitutional rights and fighting for your freedom with
-                    proven trial experience.
-                  </p>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link
-                      href="/criminal-defense"
-                      data-testid="button-criminal-services"
-                    >
-                      View Criminal Defense Services
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
-                <CardContent className="p-6">
-                  <Scale className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
-                    <Link
-                      href="/dui-defense"
-                      className="hover:underline"
-                      data-testid="link-dui-card"
-                    >
-                      DUI Defense Lawyer
-                    </Link>
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Time-sensitive defense for DUI/DWI charges in Oklahoma.
-                    Challenging breathalyzer tests, protecting your license, and
-                    fighting to minimize penalties. Available 24/7 for Lawton
-                    arrests.
-                  </p>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href="/dui-defense" data-testid="button-dui-services">
-                      View DUI Defense Services
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all">
-                <CardContent className="p-6">
-                  <Users className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-serif font-bold text-primary mb-3">
-                    <Link
-                      href="/family-law"
-                      className="hover:underline"
-                      data-testid="link-family-card"
-                    >
-                      Family Law Attorney
-                    </Link>
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Compassionate representation for divorce, child custody, and
-                    domestic relations in Comanche County. Protecting your
-                    family's interests during life's most difficult transitions.
-                  </p>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link
-                      href="/family-law"
-                      data-testid="button-family-services"
-                    >
-                      View Family Law Services
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Practice Areas Section */}
-      <section className="py-20 bg-muted/30">
+      {/* ── Attorney Profile ── */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-              All Areas of Practice
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive legal services focused on criminal defense and
-              family law matters throughout Oklahoma.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practiceAreas.map((area) => {
-              const IconComponent = area.icon;
-              return (
-                <Card
-                  key={area.title}
-                  className="group hover:shadow-lg transition-all duration-300 border-0 bg-background"
-                >
-                  <CardHeader className="space-y-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="h-8 w-8 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl font-serif">
-                          {area.title}
-                        </CardTitle>
-                      </div>
-                    </div>
-                    <CardDescription className="text-base leading-relaxed">
-                      {area.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {area.features.map((feature) => (
-                        <Badge
-                          key={feature}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {feature}
-                        </Badge>
-                      ))}
-                    </div>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                    >
-                      <Link
-                        href={area.href}
-                        data-testid={`button-${area.title.toLowerCase().replace(/\s+/g, "-")}`}
-                      >
-                        Learn More
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Attorney Profile Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <AnimatedSection className="space-y-6">
               <div>
+                <p className="text-sm font-semibold tracking-widest text-secondary uppercase mb-2">
+                  Lead Attorney & Founder
+                </p>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
                   Meet Robin Lee Rochelle
                 </h2>
-                <p className="text-lg text-muted-foreground">
-                  Lead Attorney & Founder
+              </div>
+
+              <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Robin Rochelle has spent 36 years doing one thing in Lawton: fighting for
+                  people when the system turns against them. As a former insurance defense
+                  attorney, he knows exactly how the other side builds its case — and how to
+                  dismantle it.
+                </p>
+                <p>
+                  When you hire Rochelle & Associates, you work directly with Attorney
+                  Rochelle. Not a paralegal. Not a junior associate. The attorney the
+                  Oklahoma Supreme Court trusts to police the entire legal profession.
                 </p>
               </div>
 
-              <div className="space-y-4 text-lg leading-relaxed">
-                <p>
-                  With over 36 years of legal experience, Robin Lee Rochelle has
-                  established himself as one of Lawton's most trusted criminal
-                  defense and family law attorneys. His appointment to the
-                  Professional Responsibility Commission demonstrates his
-                  commitment to legal excellence and ethics.
-                </p>
-
-                <p>
-                  Attorney Rochelle understands that facing criminal charges or
-                  family legal issues can be overwhelming. He provides
-                  personalized attention to each case, ensuring clients
-                  understand their rights and options every step of the way.
-                </p>
-
-                <p>
-                  His extensive courtroom experience and deep understanding of
-                  Oklahoma law have resulted in successful outcomes for hundreds
-                  of clients facing serious legal challenges.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-semibold text-primary">Education</div>
-                  <div className="text-sm text-muted-foreground">
-                    JD - San Diego University School of Law, 1988
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: "Education", value: "JD — San Diego, 1988" },
+                  { label: "Oklahoma Bar", value: "Admitted 2009" },
+                  { label: "California Bar", value: "Admitted 1989" },
+                  { label: "Commission", value: "Professional Responsibility" },
+                ].map((item) => (
+                  <div key={item.label} className="p-4 bg-muted/50 rounded-lg">
+                    <div className="font-semibold text-primary text-sm">{item.label}</div>
+                    <div className="text-sm text-muted-foreground mt-0.5">{item.value}</div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    BA Accounting - University of Oklahoma, 1984
-                  </div>
-                </div>
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-semibold text-primary">
-                    Bar Admissions
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Oklahoma Bar Association, 2009
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    California Bar Association, 1989
-                  </div>
-                </div>
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-semibold text-primary">
-                    Specialization
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Criminal Defense & Family Law
-                  </div>
-                </div>
-                <div className="p-4 bg-muted/50 rounded-lg">
-                  <div className="font-semibold text-primary">Commission</div>
-                  <div className="text-sm text-muted-foreground">
-                    Professional Responsibility
-                  </div>
-                </div>
+                ))}
               </div>
 
               <Button
                 asChild
                 size="lg"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                className="bg-secondary text-secondary-foreground hover:bg-accent transition-all"
               >
                 <Link href="/about" data-testid="button-attorney-profile">
-                  Learn More About Our Firm
+                  Full Attorney Profile
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-            </div>
+            </AnimatedSection>
 
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-xl">
                 <img
                   src={robinPhoto}
                   alt="Robin Lee Rochelle, Attorney at Rochelle & Associates"
@@ -579,80 +605,169 @@ export default function Home() {
                   data-testid="img-attorney-robin"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ── Testimonials ── */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real testimonials from clients who trusted us with their most
-              important legal matters.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+                What Lawton Says About Us
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Real testimonials from clients who trusted us with their most
+                important legal matters in Comanche County.
+              </p>
+            </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="border-0 bg-background">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-
-                  <blockquote className="text-lg mb-4 leading-relaxed">
-                    "{testimonial.content}"
-                  </blockquote>
-
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <div
-                        className="font-semibold text-primary"
-                        data-testid={`text-testimonial-name-${testimonial.id}`}
-                      >
-                        {testimonial.name}
-                      </div>
-                      {testimonial.caseType && (
-                        <div className="text-sm text-muted-foreground">
-                          {testimonial.caseType} Client
-                        </div>
-                      )}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          >
+            {testimonials.map((testimonial, idx) => (
+              <motion.div
+                key={testimonial.id}
+                variants={{
+                  hidden: { opacity: 0, x: idx % 2 === 0 ? -30 : 30 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+                }}
+              >
+                <Card className="border-0 bg-card shadow-sm hover:shadow-md transition-shadow h-full">
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <div className="flex items-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5"
+                          style={{ fill: "hsl(43 80% 60%)", color: "hsl(43 80% 60%)" }}
+                        />
+                      ))}
                     </div>
-                    <Badge variant="outline">{testimonial.caseType}</Badge>
-                  </div>
-                </CardContent>
-              </Card>
+
+                    <blockquote className="text-base mb-4 leading-relaxed flex-1 italic text-foreground/80">
+                      "{testimonial.content}"
+                    </blockquote>
+
+                    <div className="flex justify-between items-center pt-2 border-t border-border">
+                      <div>
+                        <div
+                          className="font-semibold text-primary"
+                          data-testid={`text-testimonial-name-${testimonial.id}`}
+                        >
+                          {testimonial.name}
+                        </div>
+                        {testimonial.caseType && (
+                          <div className="text-xs text-muted-foreground">
+                            {testimonial.caseType} Client, Lawton OK
+                          </div>
+                        )}
+                      </div>
+                      <Badge variant="outline" className="text-xs border-secondary text-secondary">
+                        {testimonial.caseType}
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Visit Our Office Section */}
+      {/* ── All Practice Areas ── */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
+          <AnimatedSection>
+            <div className="text-center mb-14">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-                Located in Downtown Lawton
+                All Areas of Practice
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Proudly serving Lawton and Comanche County — visit our office downtown
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive legal services focused on criminal defense and
+                family law throughout Southwest Oklahoma.
               </p>
             </div>
+          </AnimatedSection>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {practiceAreas.map((area) => {
+              const IconComponent = area.icon;
+              return (
+                <motion.div key={area.title} variants={fadeUp}>
+                  <Card className="group hover:shadow-md transition-all duration-300 border border-border hover:border-secondary/50 bg-card h-full">
+                    <CardHeader className="space-y-3">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-secondary/10 transition-colors">
+                          <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors" />
+                        </div>
+                        <CardTitle className="text-xl font-serif">{area.title}</CardTitle>
+                      </div>
+                      <CardDescription className="text-base leading-relaxed">
+                        {area.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex flex-wrap gap-2">
+                        {area.features.map((feature) => (
+                          <Badge key={feature} variant="secondary" className="text-xs">
+                            {feature}
+                          </Badge>
+                        ))}
+                      </div>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
+                        <Link
+                          href={area.href}
+                          data-testid={`button-${area.title.toLowerCase().replace(/\s+/g, "-")}`}
+                        >
+                          Learn More
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Location / Map Section ── */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+                  Located in Downtown Lawton
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Proudly serving Lawton and Comanche County — visit our office downtown
+                </p>
+              </div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <Card className="border-0 bg-muted/30">
+                <Card className="border-0 bg-card shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -665,19 +780,20 @@ export default function Home() {
                         <p className="text-lg mb-1" data-testid="text-home-office-address">
                           511 SW C Ave
                         </p>
-                        <p className="text-lg mb-4">
-                          Lawton, OK 73501
-                        </p>
-                        <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                          <p><strong>Office Hours:</strong> Mon-Thu: 9:00 AM - 5:00 PM, Fri: 9:00 AM - 12:00 PM, Sat-Sun: Closed</p>
-                          <p><strong>Emergency Line:</strong> Available 24/7</p>
-                          <p><strong>Phone:</strong> (580) 248-1822</p>
+                        <p className="text-lg mb-4">Lawton, OK 73501</p>
+                        <div className="space-y-1 text-sm text-muted-foreground mb-4">
+                          <p><strong className="text-foreground">Office:</strong> Mon–Thu 9–5 PM, Fri 9 AM–12 PM</p>
+                          <p><strong className="text-foreground">Emergency Line:</strong>{" "}
+                            <a href="tel:5802481822" className="text-secondary font-semibold hover:underline">
+                              Available 24/7
+                            </a>
+                          </p>
                         </div>
-                        <Button 
-                          asChild 
+                        <Button
+                          asChild
                           className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                         >
-                          <a 
+                          <a
                             href="https://www.google.com/maps/dir/?api=1&destination=511+SW+C+Ave,+Lawton,+OK+73501"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -693,73 +809,94 @@ export default function Home() {
                 </Card>
 
                 <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="p-4 bg-muted/30 rounded-lg">
-                    <p className="text-sm text-muted-foreground mb-1">Free Parking</p>
-                    <p className="font-semibold text-primary">Available On-Site</p>
+                  <div className="p-4 bg-card rounded-lg shadow-sm">
+                    <CheckCircle className="h-5 w-5 text-secondary mx-auto mb-1" />
+                    <p className="text-sm text-muted-foreground">Free Parking</p>
+                    <p className="font-semibold text-primary text-sm">Available On-Site</p>
                   </div>
-                  <div className="p-4 bg-muted/30 rounded-lg">
-                    <p className="text-sm text-muted-foreground mb-1">Accessibility</p>
-                    <p className="font-semibold text-primary">Ground Floor Office</p>
+                  <div className="p-4 bg-card rounded-lg shadow-sm">
+                    <CheckCircle className="h-5 w-5 text-secondary mx-auto mb-1" />
+                    <p className="text-sm text-muted-foreground">Accessibility</p>
+                    <p className="font-semibold text-primary text-sm">Ground Floor Office</p>
                   </div>
                 </div>
               </div>
 
-              <div>
-                <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden shadow-lg">
-                  <iframe
-                    src="https://maps.google.com/maps?q=511+SW+C+Ave,+Lawton,+OK+73501&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Rochelle & Associates Office Location - Downtown Lawton"
-                    data-testid="map-home-office-location"
-                  ></iframe>
-                </div>
+              <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src="https://maps.google.com/maps?q=511+SW+C+Ave,+Lawton,+OK+73501&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Rochelle & Associates Office Location - Downtown Lawton"
+                  data-testid="map-home-office-location"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* ── Final CTA ── */}
+      <section className="py-24 bg-[hsl(212,48%,12%)] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            Ready to Discuss Your Case?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90">
-            Don't wait to protect your rights. Contact Rochelle & Associates
-            today for a free consultation about your criminal defense or family
-            law matter.
-          </p>
+          <AnimatedSection>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+              Don't Face This Alone.
+              <br />
+              <span className="text-secondary">Call Lawton's Most Credentialed Defense Attorney.</span>
+            </h2>
+            <p className="text-lg mb-3 max-w-2xl mx-auto text-white/70 leading-relaxed">
+              36 years. 1,000+ cases. Appointed by the Oklahoma Supreme Court.
+              The attorney who knows your courthouse, your judges, and your community.
+            </p>
+            <p className="text-sm text-white/50 mb-10">
+              Available 24/7 for emergencies — including nights, weekends, and holidays.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-lg px-8 py-4"
-            >
-              <Link href="/contact" data-testid="button-cta-contact">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-secondary text-secondary-foreground hover:bg-accent text-lg px-8 py-4 transition-all hover:scale-[1.02] shadow-lg"
+              >
+                <Link href="/contact" data-testid="button-cta-contact">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Free Strategy Session
+                </Link>
+              </Button>
+
+              <a
+                href="tel:5802481822"
+                className="flex items-center text-lg font-semibold hover:text-secondary transition-colors"
+              >
                 <Phone className="mr-2 h-5 w-5" />
-                Schedule Free Consultation
-              </Link>
-            </Button>
-
-            <div className="flex items-center text-lg font-semibold">
-              <Phone className="mr-2 h-5 w-5" />
-              <span data-testid="text-cta-phone">(580) 248-1822</span>
+                <span data-testid="text-cta-phone">(580) 248-1822</span>
+              </a>
             </div>
-          </div>
-
-          <p className="text-sm text-primary-foreground/70 mt-6">
-            Available 24/7 for emergencies • Free initial consultation • No
-            obligation
-          </p>
+          </AnimatedSection>
         </div>
       </section>
+
+      {/* ── Mobile Sticky CTA Bar ── */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-primary border-t border-primary-foreground/20 grid grid-cols-2">
+        <a
+          href="tel:5802481822"
+          className="flex items-center justify-center gap-2 py-4 text-primary-foreground font-semibold text-sm bg-secondary hover:bg-accent transition-colors"
+        >
+          <Phone className="h-4 w-4" />
+          Call Now
+        </a>
+        <Link
+          href="/contact"
+          className="flex items-center justify-center gap-2 py-4 text-primary-foreground font-semibold text-sm hover:bg-primary/80 transition-colors"
+        >
+          Schedule Session
+        </Link>
+      </div>
     </div>
   );
 }

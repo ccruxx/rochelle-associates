@@ -140,7 +140,7 @@ export default function DUIDefense() {
                 data-testid="button-free-consult-dui"
               >
                 <Link href="/contact">
-                  Free Consultation
+                  Free Strategy Session
                 </Link>
               </Button>
             </div>
@@ -490,7 +490,7 @@ export default function DUIDefense() {
               data-testid="button-cta-contact-dui"
             >
               <Link href="/contact">
-                Schedule Free Consultation
+                Schedule Free Strategy Session
               </Link>
             </Button>
           </div>

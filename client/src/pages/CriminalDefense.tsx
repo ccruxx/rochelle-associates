@@ -155,7 +155,7 @@ export default function CriminalDefense() {
                 className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
                 data-testid="button-free-consultation"
               >
-                <Link href="/contact">Free Consultation</Link>
+                <Link href="/contact">Free Strategy Session</Link>
               </Button>
             </div>
           </div>
@@ -474,7 +474,7 @@ export default function CriminalDefense() {
               className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-4"
               data-testid="button-cta-contact"
             >
-              <Link href="/contact">Schedule Free Consultation</Link>
+              <Link href="/contact">Schedule Free Strategy Session</Link>
             </Button>
           </div>
 

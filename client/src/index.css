@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0 0% 100%);
+  --background: hsl(60 9% 98%);
   --foreground: hsl(212 41% 19%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(212 41% 19%);
@@ -11,19 +11,21 @@
   --popover-foreground: hsl(212 41% 19%);
   --primary: hsl(212 41% 19%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(45 33% 58%);
+  --secondary: hsl(40 42% 48%);
   --secondary-foreground: hsl(0 0% 100%);
-  --muted: hsl(210 40% 98%);
+  --muted: hsl(210 40% 97%);
   --muted-foreground: hsl(215 16% 47%);
-  --accent: hsl(45 33% 58%);
+  --accent: hsl(38 52% 54%);
   --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 0% 100%);
   --border: hsl(214 32% 91%);
   --input: hsl(214 32% 91%);
   --ring: hsl(212 41% 19%);
+  --dark-section: hsl(212 48% 12%);
+  --star: hsl(43 80% 60%);
   --chart-1: hsl(212 41% 19%);
-  --chart-2: hsl(45 33% 58%);
+  --chart-2: hsl(40 42% 48%);
   --chart-3: hsl(173 58% 39%);
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
@@ -31,22 +33,22 @@
   --sidebar-foreground: hsl(212 41% 19%);
   --sidebar-primary: hsl(212 41% 19%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(210 40% 98%);
+  --sidebar-accent: hsl(210 40% 97%);
   --sidebar-accent-foreground: hsl(212 41% 19%);
   --sidebar-border: hsl(214 32% 91%);
   --sidebar-ring: hsl(212 41% 19%);
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
-  --radius: 1.3rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00), 0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
+  --radius: 0.375rem;
+  --shadow-2xs: 0px 1px 2px 0px hsl(212 41% 10% / 0.06);
+  --shadow-xs: 0px 1px 3px 0px hsl(212 41% 10% / 0.08);
+  --shadow-sm: 0px 2px 4px -1px hsl(212 41% 10% / 0.10), 0px 1px 2px -1px hsl(212 41% 10% / 0.06);
+  --shadow: 0px 4px 6px -1px hsl(212 41% 10% / 0.12), 0px 2px 4px -2px hsl(212 41% 10% / 0.08);
+  --shadow-md: 0px 6px 12px -2px hsl(212 41% 10% / 0.14), 0px 3px 6px -3px hsl(212 41% 10% / 0.08);
+  --shadow-lg: 0px 10px 20px -4px hsl(212 41% 10% / 0.16), 0px 4px 8px -4px hsl(212 41% 10% / 0.10);
+  --shadow-xl: 0px 16px 30px -6px hsl(212 41% 10% / 0.20), 0px 8px 16px -6px hsl(212 41% 10% / 0.12);
+  --shadow-2xl: 0px 24px 48px -8px hsl(212 41% 10% / 0.25);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 }
@@ -103,7 +105,19 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

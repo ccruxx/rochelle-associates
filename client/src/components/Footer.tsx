@@ -34,7 +34,7 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-2 text-sm">
               <div className="bg-secondary px-3 py-1 rounded text-secondary-foreground font-medium">
-                Free Consultation
+                Free Strategy Session
               </div>
             </div>
             <div className="pt-2">
@@ -60,7 +60,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium" data-testid="text-footer-phone">(580) 248-1822</p>
-                  <p className="text-sm text-primary-foreground/80">Call for immediate assistance</p>
+                  <p className="text-sm text-primary-foreground/80">Available 24/7 for emergencies</p>
                 </div>
               </div>
               
@@ -129,12 +129,12 @@ export function Footer() {
             </ul>
             
             <div className="pt-4 border-t border-primary-foreground/20">
-              <Link 
+              <Link
                 href="/contact"
-                className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-medium hover:bg-secondary/90 transition-colors"
+                className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-medium hover:bg-accent transition-colors"
                 data-testid="button-footer-contact"
               >
-                Schedule Consultation
+                Free Strategy Session
               </Link>
             </div>
           </div>
