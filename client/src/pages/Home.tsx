@@ -113,9 +113,13 @@ function AnimatedSection({ children, className }: { children: React.ReactNode; c
   );
 }
 
-// Aceternity Card Hover Effect — applied to the rich practice area cards
-// Uses the same AnimatePresence + layoutId sliding-background mechanism from
-// the Aceternity card-hover-effect component, wrapping the full card content.
+// Aceternity Card Hover Effect — sliding gold background between practice area cards.
+// Fix notes:
+//   1. Use <div> (not <Link>) as the hover-tracking element so onMouseEnter/Leave
+//      are guaranteed to fire (Link passes through but div is unambiguous).
+//   2. Card uses bg-transparent so the motion.span fills the full card area,
+//      not just the 8px gutter. Previously bg-card (opaque white) buried the effect.
+//   3. Increased hover background to bg-secondary/15 for clear visibility.
 function PracticeAreaHoverGrid({ areas }: { areas: typeof practiceAreasMock }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
@@ -123,18 +127,17 @@ function PracticeAreaHoverGrid({ areas }: { areas: typeof practiceAreasMock }) {
       {areas.map((area, idx) => {
         const IconComponent = area.icon;
         return (
-          <Link
+          <div
             key={area.href}
-            href={area.href}
-            className="relative group block p-2 h-full w-full"
+            className="relative group p-2"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            {/* Aceternity sliding hover background */}
+            {/* Aceternity sliding background — fills full slot because Card is bg-transparent */}
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.span
-                  className="absolute inset-0 h-full w-full bg-secondary/10 block rounded-lg z-0"
+                  className="absolute inset-0 bg-secondary/15 block rounded-lg"
                   layoutId="practiceHoverBackground"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, transition: { duration: 0.15 } }}
@@ -143,37 +146,39 @@ function PracticeAreaHoverGrid({ areas }: { areas: typeof practiceAreasMock }) {
               )}
             </AnimatePresence>
 
-            {/* Existing rich card content — unchanged */}
-            <Card className="relative z-10 h-full border border-border group-hover:border-secondary/40 bg-card transition-colors duration-150">
-              <CardHeader className="space-y-3">
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-secondary/10 transition-colors">
-                    <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors" />
+            {/* Link wraps the card for navigation; Card is transparent so hover shows through */}
+            <Link href={area.href} className="block h-full">
+              <Card className="relative z-10 h-full border border-border group-hover:border-secondary/60 bg-transparent transition-colors duration-150">
+                <CardHeader className="space-y-3">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
+                      <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors" />
+                    </div>
+                    <CardTitle className="text-xl font-serif">{area.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-xl font-serif">{area.title}</CardTitle>
-                </div>
-                <CardDescription className="text-base leading-relaxed">
-                  {area.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {area.features.map((feature) => (
-                    <Badge key={feature} variant="secondary" className="text-xs">
-                      {feature}
-                    </Badge>
-                  ))}
-                </div>
-                <Button
-                  variant="outline"
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors pointer-events-none"
-                >
-                  Learn More
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          </Link>
+                  <CardDescription className="text-base leading-relaxed">
+                    {area.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {area.features.map((feature) => (
+                      <Badge key={feature} variant="secondary" className="text-xs">
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors pointer-events-none"
+                  >
+                    Learn More
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         );
       })}
     </div>
@@ -357,9 +362,14 @@ export default function Home() {
       {/* ── Hero Section ── */}
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(212,48%,12%)] opacity-100" />
+        {/* Two spotlights crossing from left and right — illuminates the headline */}
         <Spotlight
-          className="-top-40 left-0 md:-top-20 md:left-60"
+          className="-top-40 left-0 md:-top-20 md:left-1/4"
           fill="white"
+        />
+        <Spotlight
+          className="-top-40 right-0 md:-top-20 md:right-1/4"
+          fill="hsl(40 80% 85%)"
         />
         <div className="relative container mx-auto px-4 py-24 lg:py-36">
           <div className="max-w-4xl mx-auto text-center">
