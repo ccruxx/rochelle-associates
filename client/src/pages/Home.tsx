@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Spotlight } from "@/components/ui/spotlight";
 import {
   Shield,
   Scale,
@@ -111,6 +112,82 @@ function AnimatedSection({ children, className }: { children: React.ReactNode; c
     </motion.div>
   );
 }
+
+// Aceternity Card Hover Effect — applied to the rich practice area cards
+// Uses the same AnimatePresence + layoutId sliding-background mechanism from
+// the Aceternity card-hover-effect component, wrapping the full card content.
+function PracticeAreaHoverGrid({ areas }: { areas: typeof practiceAreasMock }) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {areas.map((area, idx) => {
+        const IconComponent = area.icon;
+        return (
+          <Link
+            key={area.href}
+            href={area.href}
+            className="relative group block p-2 h-full w-full"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {/* Aceternity sliding hover background */}
+            <AnimatePresence>
+              {hoveredIndex === idx && (
+                <motion.span
+                  className="absolute inset-0 h-full w-full bg-secondary/10 block rounded-lg z-0"
+                  layoutId="practiceHoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 0.15 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Existing rich card content — unchanged */}
+            <Card className="relative z-10 h-full border border-border group-hover:border-secondary/40 bg-card transition-colors duration-150">
+              <CardHeader className="space-y-3">
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-secondary/10 transition-colors">
+                    <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors" />
+                  </div>
+                  <CardTitle className="text-xl font-serif">{area.title}</CardTitle>
+                </div>
+                <CardDescription className="text-base leading-relaxed">
+                  {area.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {area.features.map((feature) => (
+                    <Badge key={feature} variant="secondary" className="text-xs">
+                      {feature}
+                    </Badge>
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors pointer-events-none"
+                >
+                  Learn More
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
+// Type alias so PracticeAreaHoverGrid can reference the practiceAreas shape
+type practiceAreasMock = {
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  href: string;
+  features: string[];
+}[];
 
 export default function Home() {
   useEffect(() => {
@@ -280,6 +357,10 @@ export default function Home() {
       {/* ── Hero Section ── */}
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(212,48%,12%)] opacity-100" />
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="white"
+        />
         <div className="relative container mx-auto px-4 py-24 lg:py-36">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -699,56 +780,8 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {practiceAreas.map((area) => {
-              const IconComponent = area.icon;
-              return (
-                <motion.div key={area.title} variants={fadeUp}>
-                  <Card className="group hover:shadow-md transition-all duration-300 border border-border hover:border-secondary/50 bg-card h-full">
-                    <CardHeader className="space-y-3">
-                      <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-secondary/10 transition-colors">
-                          <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors" />
-                        </div>
-                        <CardTitle className="text-xl font-serif">{area.title}</CardTitle>
-                      </div>
-                      <CardDescription className="text-base leading-relaxed">
-                        {area.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {area.features.map((feature) => (
-                          <Badge key={feature} variant="secondary" className="text-xs">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                      >
-                        <Link
-                          href={area.href}
-                          data-testid={`button-${area.title.toLowerCase().replace(/\s+/g, "-")}`}
-                        >
-                          Learn More
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+          {/* Aceternity Card Hover Effect — animated sliding background between cards */}
+          <PracticeAreaHoverGrid areas={practiceAreas} />
         </div>
       </section>
 
