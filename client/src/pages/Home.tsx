@@ -24,6 +24,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
 import robinPhoto from "@assets/image_1757800548582.png";
+import courthouseHero from "@assets/comanchecountycourthouse-ezgif.com-jpg-to-webp-converter.webp";
 
 // Actual Google reviews and testimonials (names abbreviated for client privacy)
 const testimonials: Testimonial[] = [
@@ -361,7 +362,20 @@ export default function Home() {
     <div className="min-h-screen">
       {/* ── Hero Section ── */}
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(212,48%,12%)] opacity-100" />
+        {/* Courthouse background image — fetchpriority="high" for LCP, loading="eager" since above fold */}
+        <img
+          src={courthouseHero}
+          alt=""
+          width={1375}
+          height={767}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          aria-hidden="true"
+        />
+        {/* Dark overlay — navy gradient ensures WCAG AA contrast on all text */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/88 via-primary/82 to-[hsl(212,48%,12%)]/92" />
         {/* Two spotlights crossing from left and right — illuminates the headline */}
         <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-1/4"
