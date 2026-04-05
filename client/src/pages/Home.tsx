@@ -386,7 +386,7 @@ export default function Home() {
           className="-top-40 right-0 md:-top-20 md:right-1/4"
           fill="hsl(40 80% 85%)"
         />
-        <div className="relative container mx-auto px-4 py-24 lg:py-36">
+        <div className="relative container mx-auto px-4 py-12 md:py-20 lg:py-36">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 50 }}

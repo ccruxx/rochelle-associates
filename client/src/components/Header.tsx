@@ -44,19 +44,19 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full bg-primary text-primary-foreground transition-shadow duration-300 ${
+        className={`sticky top-0 z-50 w-full bg-primary text-primary-foreground transition-shadow duration-300 overflow-hidden ${
           scrolled ? "shadow-lg" : ""
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex h-24 items-center justify-between">
+          <div className="flex h-16 md:h-20 lg:h-24 items-center justify-between">
             {/* Firm Name */}
             <div className="flex-1">
               <Link href="/" className="inline-block" data-testid="link-home">
                 <img
                   src={logoImg}
                   alt="Rochelle & Associates — Criminal Defense & Family Law"
-                  className="h-20 w-auto"
+                  className="h-12 md:h-16 lg:h-20 w-auto"
                 />
               </Link>
             </div>
