@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Phone, Menu, ChevronDown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImg from "@assets/rochelle-logo-clean.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,16 +49,15 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex h-20 items-center justify-between">
+          <div className="flex h-24 items-center justify-between">
             {/* Firm Name */}
             <div className="flex-1">
-              <Link href="/" className="flex flex-col" data-testid="link-home">
-                <span className="text-2xl md:text-3xl font-serif font-bold text-primary-foreground">
-                  ROCHELLE & ASSOCIATES
-                </span>
-                <span className="text-sm md:text-base text-primary-foreground/80 -mt-1 tracking-wide">
-                  CRIMINAL DEFENSE & FAMILY LAW
-                </span>
+              <Link href="/" className="inline-block" data-testid="link-home">
+                <img
+                  src={logoImg}
+                  alt="Rochelle & Associates — Criminal Defense & Family Law"
+                  className="h-20 w-auto"
+                />
               </Link>
             </div>
 
@@ -148,10 +148,12 @@ export function Header() {
         <div className="fixed inset-0 z-[100] bg-primary flex flex-col">
           {/* Close Button */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-primary-foreground/20">
-            <Link href="/" className="flex flex-col" onClick={() => setIsOpen(false)}>
-              <span className="text-xl font-serif font-bold text-primary-foreground">
-                ROCHELLE & ASSOCIATES
-              </span>
+            <Link href="/" className="inline-block" onClick={() => setIsOpen(false)}>
+              <img
+                src={logoImg}
+                alt="Rochelle & Associates"
+                className="h-16 w-auto"
+              />
             </Link>
             <button
               onClick={() => setIsOpen(false)}

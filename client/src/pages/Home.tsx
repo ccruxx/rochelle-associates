@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
-import robinPhoto from "@assets/image_1757800548582.png";
+import robinPhoto from "@assets/robinrochellepic1.webp";
 import courthouseHero from "@assets/comanchecountycourthouse-ezgif.com-jpg-to-webp-converter.webp";
 
 // Actual Google reviews and testimonials (names abbreviated for client privacy)
@@ -394,7 +394,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold mb-6 leading-tight drop-shadow-lg"
+                className="text-4xl md:text-6xl lg:text-7xl font-serif font-extrabold mb-6 leading-tight [text-shadow:_0_2px_8px_rgba(0,0,0,0.85),_0_1px_3px_rgba(0,0,0,0.9)]"
                 data-testid="text-hero-headline"
               >
                 When Everything Is on the Line,{" "}

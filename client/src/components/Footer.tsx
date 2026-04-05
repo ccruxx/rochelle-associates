@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FaFacebook } from "react-icons/fa";
+import logoImg from "@assets/rochelle-logo-clean.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,7 +29,13 @@ export function Footer() {
           
           {/* Firm Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-serif font-bold">Rochelle & Associates</h3>
+            <Link href="/" className="inline-block">
+              <img
+                src={logoImg}
+                alt="Rochelle & Associates — Criminal Defense & Family Law"
+                className="h-28 w-auto"
+              />
+            </Link>
             <p className="text-sm text-primary-foreground/80">
               Providing experienced legal representation in criminal defense and family law matters throughout Lawton, Oklahoma for over 36 years.
             </p>
