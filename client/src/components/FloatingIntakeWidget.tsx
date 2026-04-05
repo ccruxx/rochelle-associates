@@ -80,7 +80,7 @@ export function FloatingIntakeWidget() {
   const isOpen = step !== "closed";
 
   return (
-    <div className="fixed bottom-5 right-4 z-[200] flex flex-col items-end gap-3">
+    <div className="fixed bottom-5 left-4 right-4 z-[200] flex flex-col items-end gap-3 pointer-events-none">
 
       {/* Main panel */}
       <AnimatePresence>
@@ -92,7 +92,7 @@ export function FloatingIntakeWidget() {
             exit={{ opacity: 0, y: 24, scale: 0.94 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="
-              w-[90vw] max-w-[420px] min-w-[340px]
+              pointer-events-auto w-[calc(100vw-2rem)] max-w-[420px]
               bg-[#0f1a2e] text-white rounded-2xl shadow-[0_8px_48px_rgba(0,0,0,0.55)]
               border border-white/10 overflow-hidden
             "
@@ -333,12 +333,12 @@ export function FloatingIntakeWidget() {
       {/* Trigger button */}
       {visible && (
         <motion.button
+          className="pointer-events-auto relative w-16 h-16 rounded-full shadow-2xl overflow-visible focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.1 }}
           onClick={toggleOpen}
           aria-label={isOpen ? "Close intake form" : "Talk to an attorney"}
-          className="relative w-16 h-16 rounded-full shadow-2xl overflow-visible focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
         >
           {/* Gold glow ring */}
           {!isOpen && (
