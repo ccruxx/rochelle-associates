@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingIntakeWidget } from "@/components/FloatingIntakeWidget";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import PracticeAreas from "@/pages/PracticeAreas";
@@ -42,6 +43,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <FloatingIntakeWidget />
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
