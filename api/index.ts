@@ -1,7 +1,13 @@
 import express from "express";
 import { z } from "zod";
-import { insertContactSubmissionSchema } from "../shared/schema";
 import { Resend } from "resend";
+
+const contactSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  message: z.string().min(10),
+});
 
 const app = express();
 app.use(express.json());
@@ -19,7 +25,7 @@ app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, email, phone, message } = insertContactSubmissionSchema.parse(req.body);
+    const { name, email, phone, message } = contactSchema.parse(req.body);
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
