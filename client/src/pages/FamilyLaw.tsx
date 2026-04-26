@@ -158,7 +158,7 @@ export default function FamilyLaw() {
                 data-testid="button-free-consult-family"
               >
                 <Link href="/contact">
-                  Free Consultation
+                  Free Strategy Session
                 </Link>
               </Button>
             </div>
@@ -501,7 +501,7 @@ export default function FamilyLaw() {
               data-testid="button-cta-contact-family"
             >
               <Link href="/contact">
-                Schedule Free Consultation
+                Schedule Free Strategy Session
               </Link>
             </Button>
           </div>

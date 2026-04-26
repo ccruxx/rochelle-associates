@@ -233,7 +233,7 @@ export default function PracticeAreas() {
               >
                 <Link href="/contact" data-testid={`button-${areaKey}-contact`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Free Consultation
+                  Free Strategy Session
                 </Link>
               </Button>
               
@@ -335,7 +335,7 @@ export default function PracticeAreas() {
             >
               <Link href="/contact" data-testid="button-practice-areas-contact">
                 <Phone className="mr-2 h-5 w-5" />
-                Schedule Free Consultation
+                Schedule Free Strategy Session
               </Link>
             </Button>
             

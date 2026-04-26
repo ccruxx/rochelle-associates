@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FaFacebook } from "react-icons/fa";
+import logoImg from "@assets/rochelle-logo-clean.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,13 +29,19 @@ export function Footer() {
           
           {/* Firm Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-serif font-bold">Rochelle & Associates</h3>
+            <Link href="/" className="inline-block">
+              <img
+                src={logoImg}
+                alt="Rochelle & Associates — Criminal Defense & Family Law"
+                className="h-28 w-auto"
+              />
+            </Link>
             <p className="text-sm text-primary-foreground/80">
               Providing experienced legal representation in criminal defense and family law matters throughout Lawton, Oklahoma for over 36 years.
             </p>
             <div className="flex items-center space-x-2 text-sm">
               <div className="bg-secondary px-3 py-1 rounded text-secondary-foreground font-medium">
-                Free Consultation
+                Free Strategy Session
               </div>
             </div>
             <div className="pt-2">
@@ -60,7 +67,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium" data-testid="text-footer-phone">(580) 248-1822</p>
-                  <p className="text-sm text-primary-foreground/80">Call for immediate assistance</p>
+                  <p className="text-sm text-primary-foreground/80">Available 24/7 for emergencies</p>
                 </div>
               </div>
               
@@ -129,12 +136,12 @@ export function Footer() {
             </ul>
             
             <div className="pt-4 border-t border-primary-foreground/20">
-              <Link 
+              <Link
                 href="/contact"
-                className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-medium hover:bg-secondary/90 transition-colors"
+                className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded text-sm font-medium hover:bg-accent transition-colors"
                 data-testid="button-footer-contact"
               >
-                Schedule Consultation
+                Free Strategy Session
               </Link>
             </div>
           </div>

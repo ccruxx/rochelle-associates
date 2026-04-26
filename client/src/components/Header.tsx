@@ -1,22 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, ChevronDown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImg from "@assets/rochelle-logo-clean.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
 export function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close overlay on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -34,30 +42,32 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-primary text-primary-foreground">
-      {/* Top Bar with Firm Name and Contact */}
-      <div className="bg-primary">
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full bg-primary text-primary-foreground transition-shadow duration-300 overflow-hidden ${
+          scrolled ? "shadow-lg" : ""
+        }`}
+      >
         <div className="container mx-auto px-4">
-          <div className="flex h-20 items-center justify-between">
+          <div className="flex h-16 md:h-20 lg:h-24 items-center justify-between">
             {/* Firm Name */}
             <div className="flex-1">
-              <Link href="/" className="flex flex-col" data-testid="link-home">
-                <span className="text-2xl md:text-3xl font-serif font-bold text-primary-foreground">
-                  ROCHELLE & ASSOCIATES
-                </span>
-                <span className="text-base md:text-lg text-primary-foreground/80 -mt-1">
-                  CRIMINAL DEFENSE & FAMILY LAW
-                </span>
+              <Link href="/" className="inline-block" data-testid="link-home">
+                <img
+                  src={logoImg}
+                  alt="Rochelle & Associates — Criminal Defense & Family Law"
+                  className="h-12 md:h-16 lg:h-20 w-auto"
+                />
               </Link>
             </div>
 
-            {/* Desktop Navigation - Centered */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center justify-center space-x-8 flex-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary-foreground/80 ${
+                  className={`text-sm font-medium transition-colors hover:text-secondary ${
                     location === link.href
                       ? "text-secondary border-b-2 border-secondary pb-1"
                       : "text-primary-foreground/90"
@@ -67,12 +77,11 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              
-              {/* Practice Areas Dropdown */}
+
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button 
-                    className="flex items-center text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground/80 transition-colors"
+                  <button
+                    className="flex items-center text-sm font-medium text-primary-foreground/90 hover:text-secondary transition-colors"
                     data-testid="dropdown-practice-areas"
                   >
                     Practice Areas
@@ -82,10 +91,10 @@ export function Header() {
                 <DropdownMenuContent align="end" className="w-56">
                   {practiceAreas.map((area) => (
                     <DropdownMenuItem key={area.href} asChild>
-                      <Link 
+                      <Link
                         href={area.href}
                         className="cursor-pointer"
-                        data-testid={`link-${area.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        data-testid={`link-${area.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {area.label}
                       </Link>
@@ -95,82 +104,122 @@ export function Header() {
               </DropdownMenu>
             </nav>
 
-            {/* Contact Info & CTA */}
-            <div className="hidden md:flex items-center space-x-6 flex-1 justify-end">
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center space-x-4 flex-1 justify-end">
               <div className="text-right">
-                <div className="text-sm text-primary-foreground/90">Free Consultation:</div>
-                <div className="text-lg font-bold text-primary-foreground" data-testid="text-phone">
+                <a
+                  href="tel:5802481822"
+                  className="text-lg font-bold text-primary-foreground hover:text-secondary transition-colors block"
+                  data-testid="text-phone"
+                >
                   (580) 248-1822
+                </a>
+                <div className="text-xs text-primary-foreground/70 tracking-wide">
+                  AVAILABLE 24/7
                 </div>
               </div>
-              <Button 
-                asChild 
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6"
+              <Button
+                asChild
+                className="bg-secondary text-secondary-foreground hover:bg-accent font-semibold px-5 transition-all hover:scale-[1.02]"
               >
                 <Link href="/contact" data-testid="button-free-consultation">
-                  Schedule Free Consultation
+                  Free Strategy Session
                 </Link>
               </Button>
             </div>
 
             {/* Mobile Menu Toggle */}
             <div className="md:hidden">
-              <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-primary-foreground" data-testid="button-mobile-menu">
-                    <Menu className="h-5 w-5" />
-                    <span className="sr-only">Toggle menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-[300px]">
-                  <div className="flex flex-col space-y-4 mt-6">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`text-lg font-medium transition-colors hover:text-primary ${
-                          location === link.href ? "text-primary" : "text-muted-foreground"
-                        }`}
-                        onClick={() => setIsOpen(false)}
-                        data-testid={`link-mobile-${link.label.toLowerCase()}`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                    
-                    <div className="border-t pt-4">
-                      <h3 className="font-medium text-sm text-muted-foreground mb-2">Practice Areas</h3>
-                      {practiceAreas.map((area) => (
-                        <Link
-                          key={area.href}
-                          href={area.href}
-                          className="block text-sm text-muted-foreground hover:text-primary transition-colors py-1"
-                          onClick={() => setIsOpen(false)}
-                          data-testid={`link-mobile-${area.label.toLowerCase().replace(/\s+/g, '-')}`}
-                        >
-                          {area.label}
-                        </Link>
-                      ))}
-                    </div>
-                    
-                    <div className="border-t pt-4">
-                      <div className="text-center mb-4">
-                        <div className="text-sm text-muted-foreground">Free Consultation:</div>
-                        <div className="text-lg font-bold" data-testid="text-mobile-phone">(580) 248-1822</div>
-                      </div>
-                      <Button asChild className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                        <Link href="/contact" onClick={() => setIsOpen(false)} data-testid="button-mobile-free-consultation">
-                          Schedule Free Consultation
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </SheetContent>
-              </Sheet>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="p-2 text-primary-foreground"
+                aria-label="Open menu"
+                data-testid="button-mobile-menu"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Mobile Full-Screen Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] bg-primary flex flex-col">
+          {/* Close Button */}
+          <div className="flex items-center justify-between px-6 py-5 border-b border-primary-foreground/20">
+            <Link href="/" className="inline-block" onClick={() => setIsOpen(false)}>
+              <img
+                src={logoImg}
+                alt="Rochelle & Associates"
+                className="h-16 w-auto"
+              />
+            </Link>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 text-primary-foreground"
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          {/* Nav Links */}
+          <nav className="flex-1 overflow-y-auto px-6 py-8 space-y-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block text-2xl font-serif font-semibold text-primary-foreground py-3 border-b border-primary-foreground/10 hover:text-secondary transition-colors"
+                onClick={() => setIsOpen(false)}
+                data-testid={`link-mobile-${link.label.toLowerCase()}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <div className="pt-4">
+              <p className="text-xs font-semibold tracking-widest text-primary-foreground/50 uppercase mb-3">
+                Practice Areas
+              </p>
+              {practiceAreas.map((area) => (
+                <Link
+                  key={area.href}
+                  href={area.href}
+                  className="block text-lg text-primary-foreground/80 hover:text-secondary transition-colors py-2.5 border-b border-primary-foreground/10"
+                  onClick={() => setIsOpen(false)}
+                  data-testid={`link-mobile-${area.label.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {area.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+
+          {/* Mobile CTA at Bottom */}
+          <div className="px-6 py-8 border-t border-primary-foreground/20 space-y-4">
+            <a
+              href="tel:5802481822"
+              className="flex items-center justify-center gap-3 w-full bg-secondary text-secondary-foreground py-4 rounded font-bold text-xl hover:bg-accent transition-colors"
+              data-testid="text-mobile-phone"
+            >
+              <Phone className="h-5 w-5" />
+              (580) 248-1822
+            </a>
+            <Link
+              href="/contact"
+              className="flex items-center justify-center w-full border-2 border-primary-foreground/40 text-primary-foreground py-3 rounded font-semibold hover:border-secondary hover:text-secondary transition-colors"
+              onClick={() => setIsOpen(false)}
+              data-testid="button-mobile-free-consultation"
+            >
+              Free Strategy Session
+            </Link>
+            <p className="text-center text-xs text-primary-foreground/50">
+              Available 24/7 for emergencies
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

@@ -127,7 +127,7 @@ export default function Contact() {
             </p>
             
             <div className="bg-secondary/20 rounded-lg p-6 inline-block">
-              <p className="text-lg font-semibold text-secondary mb-2">Free Initial Consultation</p>
+              <p className="text-lg font-semibold text-secondary mb-2">Free Strategy Session</p>
               <div className="flex items-center justify-center text-2xl font-bold">
                 <Phone className="mr-2 h-6 w-6" />
                 <span data-testid="text-contact-hero-phone">(580) 248-1822</span>
