@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const NOTIFY_EMAIL = "legalassistant.rochelle@gmail.com";
+const NOTIFY_EMAILS = ["Rochelleassociates@yahoo.com", "legalassistant.rochelle@gmail.com"];
 
 const intakeSchema = z.object({
   name: z.string().min(1),
@@ -47,8 +47,8 @@ app.post("/api/intake", async (req, res) => {
     const { name, phone, practiceArea } = intakeSchema.parse(req.body);
 
     await resend.emails.send({
-      from: "Rochelle & Associates Website <onboarding@resend.dev>",
-      to: NOTIFY_EMAIL,
+      from: "Rochelle Associates <darrell@rochelle-associates.com>",
+      to: NOTIFY_EMAILS,
       subject: `New Lead: ${practiceArea} — ${name}`,
       html: `
         <h2 style="color:#1a2744;font-family:Georgia,serif;">New Intake from Website Widget</h2>
