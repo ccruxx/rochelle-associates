@@ -7,7 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAILS = ["Rochelleassociates@yahoo.com", "legalassistant.rochelle@gmail.com"];
 
 const intakeSchema = z.object({
@@ -21,6 +20,7 @@ app.get("/healthz", (_req, res) => res.status(200).send("ok"));
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, phone, message } = insertContactSubmissionSchema.parse(req.body);
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
       from: "Rochelle Associates <noreply@updates.rochelle-associates.com>",
@@ -52,6 +52,7 @@ app.post("/api/contact", async (req, res) => {
 app.post("/api/intake", async (req, res) => {
   try {
     const { name, phone, practiceArea } = intakeSchema.parse(req.body);
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
       from: "Rochelle Associates <noreply@updates.rochelle-associates.com>",
