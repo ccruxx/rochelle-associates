@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Testimonial } from "@shared/schema";
-import robinPhoto from "@assets/robinrochellepic1.webp";
+import robinPhoto from "@assets/robin-rochelle-professional-picture.jpg";
 import courthouseHero from "@assets/comanchecountycourthouse-ezgif.com-jpg-to-webp-converter.webp";
 
 // Actual Google reviews and testimonials (names abbreviated for client privacy)

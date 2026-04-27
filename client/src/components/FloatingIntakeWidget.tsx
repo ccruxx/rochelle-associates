@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, User, CheckCircle } from "lucide-react";
-import robinPhoto from "@assets/robinrochellepic1.webp";
+import robinPhoto from "@assets/robin-rochelle-professional-picture.jpg";
 
 const PRACTICE_AREAS = [
   "Criminal Defense",

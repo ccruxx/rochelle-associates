@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import robinPhoto from "@assets/robinrochellepic1.webp";
+import robinPhoto from "@assets/robin-rochelle-professional-picture.jpg";
 import officeHero from "@assets/lawton-attorney-robin-rochelle-office-hero.jpg";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
