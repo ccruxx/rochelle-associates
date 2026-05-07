@@ -110,7 +110,7 @@ export default function CriminalDefense() {
   ];
 
   const whyChoose = [
-    "36+ years defending clients in Lawton and Comanche County",
+    "36+ years as an attorney, practicing in Lawton since 2009",
     "Former insurance defense attorney - knows prosecution tactics",
     "Licensed in Oklahoma and California courts",
     "Direct attorney access - not passed to paralegals",

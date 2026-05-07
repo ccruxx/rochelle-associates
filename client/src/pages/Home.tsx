@@ -460,7 +460,7 @@ export default function Home() {
                   {yearsCount}+
                 </div>
                 <div className="text-sm text-primary-foreground/70 mt-1 tracking-wide uppercase">
-                  Years in Lawton Courts
+                  Years as an Attorney
                 </div>
               </div>
               <div className="text-center" ref={casesRef}>
@@ -660,15 +660,15 @@ export default function Home() {
 
               <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Robin Rochelle has spent 36 years doing one thing in Lawton: fighting for
+                  Robin Rochelle has spent 36 years as an attorney doing one thing: fighting for
                   people when the system turns against them. As a former insurance defense
                   attorney, he knows exactly how the other side builds its case — and how to
                   dismantle it.
                 </p>
                 <p>
                   When you hire Rochelle & Associates, you work directly with Attorney
-                  Rochelle. Not a paralegal. Not a junior associate. The attorney the
-                  Oklahoma Supreme Court trusts to police the entire legal profession.
+                  Rochelle. Not a paralegal. Not a junior associate. The attorney that
+                  Oklahoma trusts.
                 </p>
               </div>
 

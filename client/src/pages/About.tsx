@@ -112,9 +112,9 @@ export default function About() {
 
               <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Robin Rochelle has spent 36 years doing one thing in Lawton: fighting for
+                  Robin Rochelle has spent 36 years as an attorney doing one thing: fighting for
                   people when the system turns against them. He founded Rochelle & Associates
-                  with a mission — ethical, effective, and assertive legal representation for
+                  in Lawton with a mission — ethical, effective, and assertive legal representation for
                   individuals facing their most challenging situations.
                 </p>
 
