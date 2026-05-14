@@ -598,7 +598,7 @@ export default function Home() {
                 A Credential No Competitor Can Claim
               </div>
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">
-                The Attorney the Oklahoma Supreme Court Trusts
+                The Attorney Oklahoma Trusts
               </h2>
               <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-3xl mx-auto">
                 Robin Rochelle serves on the{" "}
