@@ -290,7 +290,7 @@ export default function About() {
                 Our Lawton Office
               </h2>
               <p className="text-lg text-muted-foreground">
-                Located in downtown Lawton at 511 SW C Ave — serving Comanche County for over 36 years.
+                Located in downtown Lawton at 511 SW C Ave — serving Comanche County since 2009, with over 36 years of legal experience.
               </p>
             </motion.div>
             <motion.div

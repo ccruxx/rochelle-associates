@@ -180,7 +180,7 @@ export default function FamilyLaw() {
                 expertise with genuine compassion.
               </p>
               <p>
-                For over 36 years, Attorney Robin Lee Rochelle has helped families in Lawton and Comanche County navigate 
+                Since 2009, Attorney Robin Lee Rochelle has helped families in Lawton and Comanche County navigate
                 divorce, child custody disputes, and complex family legal issues. His experience in Oklahoma family courts 
                 means he understands local judges, procedures, and what it takes to protect your family's interests.
               </p>

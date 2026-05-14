@@ -37,7 +37,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm text-primary-foreground/80">
-              Providing experienced legal representation in criminal defense and family law matters throughout Lawton, Oklahoma for over 36 years.
+              Providing experienced legal representation in criminal defense and family law matters throughout Lawton, Oklahoma since 2009, with over 36 years of legal experience.
             </p>
             <div className="flex items-center space-x-2 text-sm">
               <div className="bg-secondary px-3 py-1 rounded text-secondary-foreground font-medium">

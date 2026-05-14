@@ -525,7 +525,7 @@ export default function Home() {
                   <Link href="/family-law" className="text-primary font-semibold hover:underline" data-testid="link-home-family">
                     Family Law
                   </Link>{" "}
-                  throughout Comanche County. 36 years of local courtroom experience fighting for your rights, your freedom, and your family.
+                  throughout Comanche County. Serving Lawton since 2009, with over 36 years of legal experience fighting for your rights, your freedom, and your family.
                 </p>
               </div>
             </AnimatedSection>

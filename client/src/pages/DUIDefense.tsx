@@ -265,7 +265,7 @@ export default function DUIDefense() {
                 You need an attorney who knows how to fight both.
               </p>
               <p>
-                Attorney Robin Lee Rochelle has been defending DUI clients in Lawton for over 36 years. He understands 
+                Attorney Robin Lee Rochelle has been defending DUI clients in Lawton since 2009, bringing over 36 years of legal experience. He understands
                 Oklahoma's DUI laws inside and out, knows the local law enforcement procedures, and has successfully 
                 challenged countless DUI cases in Comanche County. From Fort Sill soldiers to Lawton residents, we've 
                 protected driving privileges and futures throughout southwest Oklahoma.
